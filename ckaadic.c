@@ -1,3 +1,4 @@
+#pragma once
 //#include "ckaadic.h"
 
 #ifdef TAPPING_TERM_PER_KEY
