@@ -1,0 +1,12 @@
+{
+	"keyboard": "reviung/reviung34",
+	"keymap": "ckaadic",
+	"layout": "LAYOUT_reviung34",
+	"layers": [
+		[ "HRM(_BASE)" ],
+		[ "HRM(_QWERT)" ],
+		[ "_NUMB" ],
+		[ "_SYMB" ],
+		[ "_FUNC" ]
+	]
+}

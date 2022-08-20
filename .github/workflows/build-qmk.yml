@@ -3,38 +3,55 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
+    name: Userspace build
     runs-on: ubuntu-latest
     container: qmkfm/qmk_cli
     strategy:
       fail-fast: false
       matrix:
-# List of keymap json files to build
-        file:
-        - niu_mini.json
-# End of json file list
+        keyboard: [reviung34]
+        conv: [kb2040]
+        include:
+        - keyboard: reviung34
 
     steps:
-
     - name: Checkout QMK
       uses: actions/checkout@v3
       with:
         repository: qmk/qmk_firmware
-# Uncomment the following for develop branch
-#        ref: develop
+        ref: develop
         submodules: true
 
     - name: Checkout userspace
       uses: actions/checkout@v2
       with:
         path: users/${{ github.actor }}
+        persist-credentials: false
+
+    - name: Setup variables
+      id: vars
+      env:
+        conv_suffix: $([ ${{ matrix.conv }} ] && printf "_${{ matrix.conv }}")
+      run: |
+        set -x
+        echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}
+        echo "::set-output name=archive-name::${{ matrix.keyboard }}${{ env.conv_suffix }}"
+
 
     - name: Build firmware
-      run: qmk compile "users/${{ github.actor }}/${{ matrix.file }}"
+      continue-on-error: true
+      working-directory: users/${{ github.actor }}/keymaps
+      run: qmk -v compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
+
+    - name: Rename uf2
+      if: ${{ matrix.conv != '' }}
+      continue-on-error: true
+      run: for file in *.uf2; do mv -v $file ${file%.*}${{ steps.vars.outputs.file-suffix }}.uf2; done 
 
     - name: Archive firmware
       uses: actions/upload-artifact@v2
       with:
-        name: ${{ matrix.file }}_${{ github.actor }}
+        name: ${{ steps.vars.outputs.archive-name }}
         retention-days: 5
         path: |
           *.bin
