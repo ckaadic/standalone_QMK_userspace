@@ -34,7 +34,7 @@ jobs:
         conv_suffix: $([ ${{ matrix.conv }} ] && printf "_${{ matrix.conv }}")
       run: |
         set -x
-        echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}
+        echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}"
         echo "::set-output name=archive-name::${{ matrix.keyboard }}${{ env.conv_suffix }}"
 
 
