@@ -9,10 +9,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [reviung34]
+        keyboard: [fifi]
         conv: [kb2040]
         include:
-        - keyboard: reviung34
+        - keyboard: fifi
 
     steps:
     - name: Checkout QMK
