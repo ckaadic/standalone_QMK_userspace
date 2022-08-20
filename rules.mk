@@ -43,7 +43,7 @@ ifneq ($(strip $(CONVERT_TO)),)
 	OPT_DEFS += -DINIT_EE_HANDS_$(shell echo ${SPLIT}|tr a-z A-Z)
 endif
 
-ifeq ($(strip $(KEYBOARD)), reviung/reviung34)
+ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
 	RGB_MATRIX_ENABLE = yes
 	RGB_MATRIX_CUSTOM_USER = yes
 	OLED_ENABLE = yes
