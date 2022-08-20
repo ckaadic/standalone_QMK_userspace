@@ -1,0 +1,12 @@
+{
+	"keyboard": "crkbd/rev1",
+	"keymap": "ckaadic",
+	"layout": "LAYOUT_fifi",
+	"layers": [
+		[ "HRM(_BASE)" ],
+		[ "HRM(_QWERT)" ],
+		[ "_NUMB" ],
+		[ "_SYMB" ],
+		[ "_FUNC" ]
+	]
+}
