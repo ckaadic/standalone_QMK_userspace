@@ -1,5 +1,4 @@
-#pragma once
-//#include "ckaadic.h"
+#include "ckaadic.h"
 
 #ifdef TAPPING_TERM_PER_KEY
 #	define IS_TYPING() (timer_elapsed(tap_timer) < TAPPING_TERM * 1.3)
