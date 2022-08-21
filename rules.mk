@@ -45,7 +45,7 @@ endif
 
 ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
 	RGB_MATRIX_ENABLE = yes
-	RGB_MATRIX_CUSTOM_USER = yes
+	RGB_MATRIX_CUSTOM_USER = no
 	OLED_ENABLE = yes
 	ifeq ($(strip $(OLED)), LUNA FELIX)
 		OPT_DEFS += -DAUTO_CORRECT -D${OLED}
