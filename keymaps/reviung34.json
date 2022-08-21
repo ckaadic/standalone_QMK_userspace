@@ -1,7 +1,7 @@
 {
 	"keyboard": "reviung/reviung34",
 	"keymap": "ckaadic",
-	"layout": "LAYOUT_34key_w",
+	"layout": "LAYOUT_reviung34",
 	"layers": [
 		[ "C_34(HRM(_BASE))" ],
 		[ "C_34(HRM(_COLE))" ],
