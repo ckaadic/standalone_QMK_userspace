@@ -1,38 +1,5 @@
 #include "ckaadic.h"
 
-#ifdef PERMISSIVE_HOLD_PER_KEY
-// Select Shift mod tap immediately when another key is pressed and released.
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-	return keycode == RSFT_T(KC_SPC) ? true : false;
-}
-#endif
-
-#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
-// Select hold immediately with another key for layer tap 1 and higher.
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-	return IS_LAYER_TAP(keycode) ? true : false;
-}
-#endif
-
-#ifdef TAPPING_FORCE_HOLD_PER_KEY
-// Force hold on tap-hold key when held after tapping,
-// enable for (right split) bottom row key.
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
-	return record->event.key.row == MATRIX_ROWS - 1 ? true : false;
-}
-#endif
-
-
-// Send custom hold keycode for mod tap.
-static inline bool process_tap_hold(uint16_t hold_keycode, keyrecord_t *record) {
-	if (!record->tap.count) {
-		tap_code16(hold_keycode);
-		return false;
-	}
-	return true;
-}
-
-
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	if (record->event.pressed) {
 #ifdef TAPPING_TERM_PER_KEY
