@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         keyboard: [fifi]
-        conv: [kb2040]
+        conv: [kb2040,atmega32u4]
         include:
         - keyboard: fifi
 
@@ -43,10 +43,6 @@ jobs:
       working-directory: users/${{ github.actor }}/keymaps
       run: qmk compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
 
-    - name: Rename uf2
-      if: ${{ matrix.conv != '' }}
-      continue-on-error: true
-      run: for file in *.uf2; do mv -v $file ${file%.*}${{ steps.vars.outputs.file-suffix }}.uf2; done 
 
     - name: Archive firmware
       uses: actions/upload-artifact@v2
