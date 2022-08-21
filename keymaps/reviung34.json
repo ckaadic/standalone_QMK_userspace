@@ -3,8 +3,8 @@
 	"keymap": "ckaadic",
 	"layout": "LAYOUT_reviung34_w",
 	"layers": [
-		[ "C_34(HRM(_BASE))" ],
 		[ "C_34(HRM(_COLE))" ],
+		[ "C_34(HRM(_BASE))" ],
 		[ "C_34(_NUMB)" ],
 		[ "C_34(_SYMB)" ],
 		[ "C_34(_FUNC)" ]

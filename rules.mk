@@ -46,11 +46,5 @@ endif
 ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
 	RGB_MATRIX_ENABLE = yes
 	OLED_ENABLE = yes
-	ifeq ($(strip $(OLED)), LUNA FELIX)
-		OPT_DEFS += -DAUTO_CORRECT -D${OLED}
-		SRC += autocorrect.c oled-icons.c oled-luna.c
-	else
-		OPT_DEFS += -DAUTO_CORRECT -D$(shell echo ${SPLIT}|tr a-z A-Z)CAT
-		SRC += autocorrect.c oled-icons.c oled-bongocat.c
-	endif
+	SRC += autocorrect.c oled-32.c rgb-matrix.c
 endif

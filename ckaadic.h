@@ -40,9 +40,3 @@ mod_bits = (kc & 0x1000) ? ((kc >> 8) & 0xf) << 4 : ((kc >> 8) & 0xf)
 
 #define IS_MOD_TAP(kc) (QK_MOD_TAP <= kc && kc <= QK_MOD_TAP_MAX)
 #define IS_LAYER_TAP(kc) (QK_LAYER_TAP_1 <= kc && kc <= QK_LAYER_TAP_MAX)
-
-
-#ifdef RGB_MATRIX_ENABLE
-    #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
-    #define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
-#endif
