@@ -4,7 +4,7 @@
 	"layout": "LAYOUT_fifi",
 	"layers": [
 		[ "HRM(_BASE)" ],
-		[ "HRM(_QWERT)" ],
+		[ "HRM(_QWERTY)" ],
 		[ "_NUMB" ],
 		[ "_SYMB" ],
 		[ "_FUNC" ]
