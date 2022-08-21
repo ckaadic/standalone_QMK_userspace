@@ -1,5 +1,5 @@
 SRC += ckaadic.c
-VPATH += $(USER_PATH)/oled $(USER_PATH)/features #$(USER_PATH)/rgb
+VPATH += $(USER_PATH)/oled $(USER_PATH)/features $(USER_PATH)/rgb
 
 # Common feature for all keyboards
 BOOTMAGIC_ENABLE = yes
