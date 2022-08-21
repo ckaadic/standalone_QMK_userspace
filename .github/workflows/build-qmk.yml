@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         keyboard: [fifi]
-        conv: [kb2040,atmega32u4]
+        conv: [kb2040, '']
         include:
         - keyboard: fifi
 
