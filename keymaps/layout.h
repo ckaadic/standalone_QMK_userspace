@@ -72,7 +72,7 @@
                                `-------------'  `-------------'
  */
 #define _SYMB \
-	KC_ESC, M_UE,      M_AE,    M_OE,    KC_NO,               KC_NO,   KC_PGUP, KC_UP,   M_SS,    KC_NO,    \
+	KC_ESC, KC_NO,      KC_NO,    KC_NO,    KC_NO,               KC_NO,   KC_PGUP, KC_UP,   KC_NO,    KC_NO,    \
     OS_GUI, OS_ALT,    OS_CTRL, OS_SHFT, SAVE,                KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,   \
     KC_ENT, CAPS_WORD, COPY,    KC_DEL, PASTE,                KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,    \
                                 KC_TRNS,KC_NO,                KC_TAB, KC_ENT
