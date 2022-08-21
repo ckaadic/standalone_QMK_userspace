@@ -41,7 +41,7 @@ jobs:
     - name: Build firmware
       continue-on-error: true
       working-directory: users/${{ github.actor }}/keymaps
-      run: qmk -v compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
+      run: qmk compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
 
     - name: Rename uf2
       if: ${{ matrix.conv != '' }}
