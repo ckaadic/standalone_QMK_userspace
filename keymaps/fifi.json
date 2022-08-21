@@ -1,7 +1,7 @@
 {
 	"keyboard": "crkbd/rev1",
 	"keymap": "ckaadic",
-	"layout": "LAYOUT_fifi",
+	"layout": "SPLIT_34_TO_36",
 	"layers": [
 		[ "HRM(_BASE)" ],
 		[ "HRM(_QWERT)" ],
