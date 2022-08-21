@@ -1,12 +1,12 @@
 {
 	"keyboard": "reviung/reviung34",
 	"keymap": "ckaadic",
-	"layout": "LAYOUT_reviung34",
+	"layout": "LAYOUT_34key_w",
 	"layers": [
-		[ "HRM(_BASE)" ],
-		[ "HRM(_QWERT)" ],
-		[ "_NUMB" ],
-		[ "_SYMB" ],
-		[ "_FUNC" ]
+		[ "C_34(HRM(_BASE))" ],
+		[ "C_34(HRM(_COLE))" ],
+		[ "C_34(_NUMB)" ],
+		[ "C_34(_SYMB)" ],
+		[ "C_34(_FUNC)" ]
 	]
 }

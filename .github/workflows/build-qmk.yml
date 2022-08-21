@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [fifi]
+        keyboard: [fifi,reviung34]
         conv: [kb2040, '']
         include:
         - keyboard: fifi
