@@ -29,7 +29,7 @@
 	KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U,    KC_Y,   KC_QUOTE,  \
     KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E,    KC_I,   KC_O,      \
     KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLASH,  \
-                MO(_SYM), OS_SHFT,                  KC_SPACE,MO(_NUM)
+                MO(_SYMB), OS_SHFT,                  KC_SPACE,MO(_NUMB)
 /* ,----------------------------------.                ,----------------------------------.
    |  Q   |  W   |  F   |  P   |  G   |                |  J   |  L   |  U   |  Y   | ' "  |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -44,7 +44,7 @@
 	KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I,    KC_O,   KC_P,      \
     KC_A, KC_S, KC_D, KC_F, KC_G,                   KC_H, KC_J, KC_K,    KC_L,   KC_QUOTE,  \
     KC_Z, KC_X, KC_C, KC_V, KC_B,                   KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH,  \
-                MO(_SYM), OS_SHFT,                  KC_SPACE,MO(_NUM)
+                MO(_SYMB), OS_SHFT,                  KC_SPACE,MO(_NUMB)
 /* ,----------------------------------.                ,----------------------------------.
    |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -60,7 +60,7 @@
 	KC_SCOLON, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,             KC_ASTR, KC_MINS, KC_EQL, KC_PLUS, KC_GRV,   \
     KC_COLN,   KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,             KC_3,    KC_2,    KC_1,   KC_0,    KC_4,     \
     KC_CIRC,   KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,              KC_7,    KC_6,    KC_5,   KC_9,    KC_8,     \
-                                 MO(FNC), KC_TRNS,             KC_NO, KC_TRNS
+                                 MO(_FUNC), KC_TRNS,             KC_NO, KC_TRNS
 /* ,----------------------------------.                ,----------------------------------.
    | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |
    |------+------+------+------+------|                |------+------+------+------+------|
