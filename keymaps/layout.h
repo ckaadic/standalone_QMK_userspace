@@ -116,6 +116,11 @@
 	                   k31,  k32,    k33, k34
 
 
+// Layout aliases
+#define LAYOUT_fifi(...) LAYOUT(__VA_ARGS__)
+//#define LAYOUT_ortho_w(...) LAYOUT_ortho_4x12(__VA_ARGS__)
+//#define LAYOUT_36key_w(...) LAYOUT(__VA_ARGS__)
+//#define LAYOUT_34key_w(...) LAYOUT_split_3x5_2(__VA_ARGS__)
 
 // 3x5_2 to 36-key conversion
 #define C_36(k) SPLIT_34_TO_36(k)
@@ -129,10 +134,3 @@
 	     k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, \
 	     k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
 	            KC_DEL, k31, k32,    k33, k34, KC_ENT \
-
-
-// Layout aliases
-#define SPLIT_34_TO_36(...) LAYOUT_split_3x5_3(__VA_ARGS__)
-//#define LAYOUT_ortho_w(...) LAYOUT_ortho_4x12(__VA_ARGS__)
-//#define LAYOUT_36key_w(...) LAYOUT(__VA_ARGS__)
-//#define LAYOUT_34key_w(...) LAYOUT_split_3x5_2(__VA_ARGS__)
