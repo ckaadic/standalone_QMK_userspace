@@ -1,5 +1,5 @@
 SRC += ckaadic.c
-VPATH += $(USER_PATH)/oled $(USER_PATH)/features $(USER_PATH)/rgb
+VPATH += $(USER_PATH)/oled $(USER_PATH)/features #$(USER_PATH)/rgb
 
 # Common feature for all keyboards
 BOOTMAGIC_ENABLE = yes
@@ -45,13 +45,12 @@ endif
 
 ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
 	RGB_MATRIX_ENABLE = yes
-	RGB_MATRIX_CUSTOM_USER = no
 	OLED_ENABLE = yes
 	ifeq ($(strip $(OLED)), LUNA FELIX)
 		OPT_DEFS += -DAUTO_CORRECT -D${OLED}
-		SRC += autocorrect.c rgb-matrix.c oled-icons.c oled-luna.c
+		SRC += autocorrect.c oled-icons.c oled-luna.c
 	else
 		OPT_DEFS += -DAUTO_CORRECT -D$(shell echo ${SPLIT}|tr a-z A-Z)CAT
-		SRC += autocorrect.c rgb-matrix.c oled-icons.c oled-bongocat.c
+		SRC += autocorrect.c oled-icons.c oled-bongocat.c
 	endif
 endif
