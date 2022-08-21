@@ -46,3 +46,10 @@ mod_bits = (kc & 0x1000) ? ((kc >> 8) & 0xf) << 4 : ((kc >> 8) & 0xf)
     #define ENABLE_RGB_MATRIX_RAINBOW_BEACON
     #define ENABLE_RGB_MATRIX_RAINBOW_PINWHEELS
 #endif
+
+enum keycodes {
+    // Custom oneshot mod implementation with no timers.
+    M_AE = SAFE_RANGE,
+    M_OE,
+    M_UE,
+};

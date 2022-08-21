@@ -66,3 +66,24 @@ bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	}
 	return true;
 }
+
+bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case M_AE:
+            if (record->event.pressed) {
+                SEND_STRING("\"a");
+            }
+            return false;
+        case M_OE:
+            if (record->event.pressed) {
+                SEND_STRING("\"o");
+            }
+            return false;
+        case M_UE:
+            if (record->event.pressed) {
+                SEND_STRING("\"u");
+            }
+            return false;
+    }
+    return process_record_user(keycode, record);
+};

@@ -15,12 +15,6 @@
 #	define OSM_GUI OSM(MOD_LGUI)
 #endif
 
-enum keycodes {
-    // Custom oneshot mod implementation with no timers.
-    M_AE = SAFE_RANGE,
-    M_OE,
-    M_UE,
-};
 
 // Layers
 #define BSE 0
@@ -140,24 +134,3 @@ enum keycodes {
 	     k11, k12, k13, k14, k15,    k16, k17, k18, k19, k20, \
 	     k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
 	            KC_DEL, k31, k32,    k33, k34, KC_ENT
-
-bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
-        case M_AE:
-            if (record->event.pressed) {
-                SEND_STRING("\"a");
-            }
-            return false;
-        case M_OE:
-            if (record->event.pressed) {
-                SEND_STRING("\"o");
-            }
-            return false;
-        case M_UE:
-            if (record->event.pressed) {
-                SEND_STRING("\"u");
-            }
-            return false;
-    }
-    return process_record_user(keycode, record);
-};
