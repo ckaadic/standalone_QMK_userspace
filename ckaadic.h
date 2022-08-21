@@ -52,4 +52,5 @@ enum keycodes {
     M_AE = SAFE_RANGE,
     M_OE,
     M_UE,
+    NEW_SAFE_RANGE
 };
