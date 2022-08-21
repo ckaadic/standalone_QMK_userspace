@@ -1,14 +1,5 @@
 #include "ckaadic.h"
 
-#ifdef TAPPING_TERM_PER_KEY
-#	define IS_TYPING() (timer_elapsed(tap_timer) < TAPPING_TERM * 1.3)
-static uint16_t tap_timer = 0;
-// Increase tapping term in between short key presses to avoid false trigger.
-uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-	return MODTAP_BIT(keycode) & MOD_MASK_CAG && IS_TYPING() ? TAPPING_TERM * 1.3 : TAPPING_TERM;
-}
-#endif
-
 #ifdef PERMISSIVE_HOLD_PER_KEY
 // Select Shift mod tap immediately when another key is pressed and released.
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
