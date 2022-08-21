@@ -60,7 +60,7 @@
 	KC_SCOLON, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,             KC_ASTR, KC_MINS, KC_EQL, KC_PLUS, KC_GRV,   \
     KC_COLN,   KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,             KC_3,    KC_2,    KC_1,   KC_0,    KC_4,     \
     KC_CIRC,   KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,              KC_7,    KC_6,    KC_5,   KC_9,    KC_8,     \
-                                 MO(_FUNC), KC_TRNS,             _______, KC_TRNS
+                                 MO(_FUNC), KC_TRNS,           _______, KC_TRNS
 /* ,----------------------------------.                ,----------------------------------.
    | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -72,7 +72,7 @@
                                `-------------'  `-------------'
  */
 #define _SYMB \
-	KC_ESC, _______,   _______, _______, _______,               _______,   KC_PGUP, KC_UP,   _______,    _______,    \
+	KC_ENT, _______,   _______, _______, _______,               _______,   KC_PGUP, KC_UP,   _______,    _______,    \
     OS_GUI, OS_ALT,    OS_CTRL, OS_SHFT, SAVE,                KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,   \
     KC_ENT, CAPS_WORD, COPY,    KC_DEL, PASTE,                _______,   KC_PGDN, _______,   _______,   _______,    \
                                 KC_TRNS,_______,                KC_TAB, KC_ENT
