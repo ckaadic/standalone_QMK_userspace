@@ -60,7 +60,7 @@
 	KC_SCOLON, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,             KC_ASTR, KC_MINS, KC_EQL, KC_PLUS, KC_GRV,   \
     KC_COLN,   KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,             KC_3,    KC_2,    KC_1,   KC_0,    KC_4,     \
     KC_CIRC,   KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,              KC_7,    KC_6,    KC_5,   KC_9,    KC_8,     \
-                                 MO(_FUNC), KC_TRNS,             KC_NO, KC_TRNS
+                                 MO(_FUNC), KC_TRNS,             _______, KC_TRNS
 /* ,----------------------------------.                ,----------------------------------.
    | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -72,10 +72,10 @@
                                `-------------'  `-------------'
  */
 #define _SYMB \
-	KC_ESC, KC_NO,      KC_NO,    KC_NO,    KC_NO,               KC_NO,   KC_PGUP, KC_UP,   KC_NO,    KC_NO,    \
+	KC_ESC, _______,   _______, _______, _______,               _______,   KC_PGUP, KC_UP,   _______,    _______,    \
     OS_GUI, OS_ALT,    OS_CTRL, OS_SHFT, SAVE,                KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,   \
-    KC_ENT, CAPS_WORD, COPY,    KC_DEL, PASTE,                KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,    \
-                                KC_TRNS,KC_NO,                KC_TAB, KC_ENT
+    KC_ENT, CAPS_WORD, COPY,    KC_DEL, PASTE,                _______,   KC_PGDN, _______,   _______,   _______,    \
+                                KC_TRNS,_______,                KC_TAB, KC_ENT
 /* ,----------------------------------.                ,----------------------------------.
    |      |  [   |  {   |  }   |      |                |  ^   |  (   |  )   |  ]   |  ~   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -87,10 +87,10 @@
                                `-------------'  `-------------'
  */
 #define _FUNC \
-	DF(_COLEMAK_DH), DF(_QWERTY), KC_NO, KC_NO, KC_NO,            KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,\
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,            KC_F11, KC_F4, KC_F5, KC_F6, KC_NO,\
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,            KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,\
-                    KC_TRNS, KC_NO,  KC_NO,   KC_NO
+	DF(_COLEMAK_DH), DF(_QWERTY), _______, _______, _______,            KC_F12, KC_F7, KC_F8, KC_F9, _______,\
+    _______, _______, _______, _______, _______,            KC_F11, KC_F4, KC_F5, KC_F6, _______,\
+    _______, _______, _______, _______, _______,            KC_F10, KC_F1, KC_F2, KC_F3, _______,\
+                    KC_TRNS, _______,  _______,   _______
 /* ,----------------------------------.                ,----------------------------------.
    |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |
    |------+------+------+------+------|                |------+------+------+------+------|
