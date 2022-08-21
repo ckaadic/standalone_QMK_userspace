@@ -15,6 +15,12 @@
 #	define OSM_GUI OSM(MOD_LGUI)
 #endif
 
+enum keycodes {
+    // Custom oneshot mod implementation with no timers.
+    M_AE = SAFE_RANGE,
+    M_OE,
+    M_UE,
+};
 
 // Layers
 #define BSE 0
@@ -26,10 +32,10 @@
 
 // Default 3x5_2 split layout
 #define _BASE \
-	KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, \
-	KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    \
-	KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
-	                           _______, _______,     _______, _______
+	KC_Q, KC_W, KC_F, KC_P, KC_B,                   KC_J, KC_L, KC_U,    KC_Y,   KC_QUOTE,  \
+    KC_A, KC_R, KC_S, KC_T, KC_G,                   KC_M, KC_N, KC_E,    KC_I,   KC_O,      \
+    KC_Z, KC_X, KC_C, KC_D, KC_V,                   KC_K, KC_H, KC_COMM, KC_DOT, KC_SLASH,  \
+                MO(_SYM), OS_SHFT,                  KC_SPACE,MO(_NUM)
 /* ,----------------------------------.                ,----------------------------------.
    |  Q   |  W   |  F   |  P   |  G   |                |  J   |  L   |  U   |  Y   | ' "  |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -41,10 +47,10 @@
                                `-------------'  `-------------'
  */
 #define _QWERTY \
-	KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    \
-	KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, \
-	KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, \
-	              RSA_T(KC_ESC), LT(SYM,KC_TAB),     RSFT_T(KC_SPC), LT(NUM,KC_BSPC)
+	KC_Q, KC_W, KC_E, KC_R, KC_T,                   KC_Y, KC_U, KC_I,    KC_O,   KC_P,      \
+    KC_A, KC_S, KC_D, KC_F, KC_G,                   KC_H, KC_J, KC_K,    KC_L,   KC_QUOTE,  \
+    KC_Z, KC_X, KC_C, KC_V, KC_B,                   KC_N, KC_M, KC_COMM, KC_DOT, KC_SLASH,  \
+                MO(_SYM), OS_SHFT,                  KC_SPACE,MO(_NUM)
 /* ,----------------------------------.                ,----------------------------------.
    |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -57,10 +63,10 @@
                                `-------------'  `-------------'
  */
 #define _NUMB \
-	KC_INS,  KC_1,    KC_2,    KC_3,    KC_VOLU,     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_COLN, \
-	KC_DEL,  KC_4,    KC_5,    KC_6,    KC_VOLD,     KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, KC_SCLN, \
-	KC_CAPS, KC_7,    KC_8,    KC_9,    KC_0,        _______, RSA_DN,  RSA_UP,  _______, _______, \
-	                           MO(FNC), QK_GESC,     _______, _______
+	KC_SCOLON, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,             KC_ASTR, KC_MINS, KC_EQL, KC_PLUS, KC_GRV,   \
+    KC_COLN,   KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,             KC_3,    KC_2,    KC_1,   KC_0,    KC_4,     \
+    KC_CIRC,   KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,              KC_7,    KC_6,    KC_5,   KC_9,    KC_8,     \
+                                 MO(FNC), KC_TRNS,             KC_NO, KC_TRNS
 /* ,----------------------------------.                ,----------------------------------.
    | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -72,10 +78,10 @@
                                `-------------'  `-------------'
  */
 #define _SYMB \
-	_______, KC_LBRC, KC_LCBR, KC_RCBR, _______,     KC_CIRC, KC_LPRN, KC_RPRN, KC_RBRC, KC_TILD, \
-	KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_ASTR, KC_MINS, KC_EQL,  KC_BSLS, KC_GRV,  \
-	_______, _______, _______, _______, _______,     KC_AMPR, KC_UNDS, KC_PLUS, KC_PIPE, _______, \
-	                           _______, _______,     _______, MO(FNC)
+	KC_ESC, M_UE,      M_AE,    M_OE,    KC_NO,               KC_NO,   KC_PGUP, KC_UP,   M_SS,    KC_NO,    \
+    OS_GUI, OS_ALT,    OS_CTRL, OS_SHFT, SAVE,                KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,   \
+    KC_ENT, CAPS_WORD, COPY,    KC_DEL, PASTE,                KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,    \
+                                KC_TRNS,KC_NO,                KC_TAB, KC_ENT
 /* ,----------------------------------.                ,----------------------------------.
    |      |  [   |  {   |  }   |      |                |  ^   |  (   |  )   |  ]   |  ~   |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -87,10 +93,10 @@
                                `-------------'  `-------------'
  */
 #define _FUNC \
-	QK_BOOT, KC_F1,   KC_F2,   KC_F3,   KC_F10,      _______, KC_WH_U, KC_WH_D, _______, TG(CMK), \
-	_______, KC_F4,   KC_F5,   KC_F6,   KC_F11,      KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, _______, \
-	Z_SLEEP, KC_F7,   KC_F8,   KC_F9,   KC_F12,      _______, KC_BTN2, KC_BTN1, _______, Z_SSAVE, \
-	                           _______, _______,     _______,	 _______
+	DF(_COLEMAK_DH), DF(_QWERTY), KC_NO, KC_NO, KC_NO,            KC_F12, KC_F7, KC_F8, KC_F9, KC_NO,\
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,            KC_F11, KC_F4, KC_F5, KC_F6, KC_NO,\
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,            KC_F10, KC_F1, KC_F2, KC_F3, KC_NO,\
+                    KC_TRNS, KC_NO,  KC_NO,   KC_NO
 /* ,----------------------------------.                ,----------------------------------.
    |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |
    |------+------+------+------+------|                |------+------+------+------+------|
@@ -135,3 +141,23 @@
 	     k21, k22, k23, k24, k25,    k26, k27, k28, k29, k30, \
 	            KC_DEL, k31, k32,    k33, k34, KC_ENT
 
+bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case M_AE:
+            if (record->event.pressed) {
+                SEND_STRING("\"a");
+            }
+            return false;
+        case M_OE:
+            if (record->event.pressed) {
+                SEND_STRING("\"o");
+            }
+            return false;
+        case M_UE:
+            if (record->event.pressed) {
+                SEND_STRING("\"u");
+            }
+            return false;
+    }
+    return process_record_user(keycode, record);
+};
