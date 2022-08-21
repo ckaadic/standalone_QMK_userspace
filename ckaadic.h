@@ -1,6 +1,6 @@
 #pragma once
 #include QMK_KEYBOARD_H
-/*
+
 // Layer and mod tap bits
 // 0xff00 bitmask
 #define QK_LAYER_TAP_0  0x4000
@@ -14,7 +14,7 @@
 // 0xf000 bitmask
 #define QK_LMOD_TAP 0x6000
 #define QK_RMOD_TAP 0x7000
-*/
+
 /* Mod bit notes
  (kc >> 8) & 0x1f for mod-tap bits
  (kc & 0x1f) for osm bits
@@ -34,12 +34,12 @@ mod_bits = (kc & 0x1000) ? ((kc >> 8) & 0xf) << 4 : ((kc >> 8) & 0xf)
 */
 
 // Return left or right mod tap bits
-//#define MODTAP_BITS(kc) ((kc & 0x1000) ? ((kc >> 8) & 0xf) << 4 : ((kc >> 8) & 0xf))
+#define MODTAP_BITS(kc) ((kc & 0x1000) ? ((kc >> 8) & 0xf) << 4 : ((kc >> 8) & 0xf))
 // Return coarse (left) mod tap bits
-//#define MODTAP_BIT(kc) ((kc >> 8) & 0x0f)
+#define MODTAP_BIT(kc) ((kc >> 8) & 0x0f)
 
-//#define IS_MOD_TAP(kc) (QK_MOD_TAP <= kc && kc <= QK_MOD_TAP_MAX)
-//#define IS_LAYER_TAP(kc) (QK_LAYER_TAP_1 <= kc && kc <= QK_LAYER_TAP_MAX)
+#define IS_MOD_TAP(kc) (QK_MOD_TAP <= kc && kc <= QK_MOD_TAP_MAX)
+#define IS_LAYER_TAP(kc) (QK_LAYER_TAP_1 <= kc && kc <= QK_LAYER_TAP_MAX)
 
 
 #ifdef RGB_MATRIX_ENABLE
