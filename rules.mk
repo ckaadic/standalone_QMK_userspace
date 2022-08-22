@@ -43,8 +43,8 @@ switch($(strip $(KEYBOARD))):
     case crkbd/rev1:
         RGB_MATRIX_ENABLE = yes
 	    OLED_ENABLE = yes
-	    SRC += autocorrect.c oled-32.c rgb-matrix.c
+	    SRC += oled-32.c rgb-matrix.c
     case reviung/reviung34:
         RGB_MATRIX_ENABLE = yes
         RGB_MATRIX_DRIVER = WS2812
-        SRC += autocorrect.c rgb-matrix.c
+        SRC += rgb-matrix.c
