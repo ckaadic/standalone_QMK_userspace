@@ -29,10 +29,6 @@ SWAP_HANDS_ENABLE = no
 SPACE_CADET_ENABLE = no
 
 
-# Custom features
-OPT_DEFS += -DCAPS_UNLOCK
-SRC += caps_unlock.c
-
 ifeq ($(strip $(MCU)), atmega32u4)
 	LTO_ENABLE = yes
 	BOOTLOADER = atmel-dfu
