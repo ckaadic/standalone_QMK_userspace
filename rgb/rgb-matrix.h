@@ -10,19 +10,11 @@
 #define RGB_DPINK	115, 20, 45
 #define RGB_DTEAL	5, 35, 35
 #define RGB_FLUOR	75, 122, 22
-#define RGB_CAPS	RGB_FLUOR
-#define RGB_MODS	RGB_DPURPLE
-#define RGB_LAYER	RGB_DPINK
 
-// Custom effects
-#define DEF_MODE	RGB_MATRIX_JELLYBEAN_RAINDROPS//RGB_MATRIX_CUSTOM_CANDY_RAIN
-#define CMK_MODE	RGB_MATRIX_HUE_PENDULUM//RGB_MATRIX_CUSTOM_CANDY_FRACTAL
-
-// Custom indicators
-#ifdef KEYBOARD_crkbd_rev1
-#	define MOD_FLAG LED_FLAG_UNDERGLOW
-#	define CAP_FLAG LED_FLAG_UNDERGLOW
-#else
-#	define MOD_FLAG LED_FLAG_MODIFIER
-#	define CAP_FLAG LED_FLAG_KEYLIGHT
+// Custom definitions
+#ifdef KEYBOARD_reviung_reviung34
+#   define RGB_DI_PIN D3
+#	define RGBLED_NUM 9
 #endif
+
+#define RGBLIGHT_EFFECT_BREATHING
