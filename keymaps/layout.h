@@ -102,10 +102,10 @@
                                `--------------------'  `--------------------'
  */
 #define _FUNC \
-	KC_NO, DF(_COLE), DF(_BASE), KC_NO,   KC_NO,    KC_NO,     KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
-	KC_NO, RGB_HUI,   RGB_SAI,   RGB_VAI, RGB_MOD,  RGB_TOG,   KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
-	KC_NO, RGB_HUD,   RGB_SAD,   RGB_VAD, RGB_RMOD, KC_NO,     KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
-	                             KC_NO,  KC_NO,     KC_NO,     KC_NO,   KC_NO,   KC_NO
+	KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
+	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
+	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
+	                           KC_NO, KC_NO, KC_NO,     KC_NO, KC_NO, KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
