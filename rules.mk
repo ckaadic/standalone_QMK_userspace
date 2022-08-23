@@ -39,12 +39,11 @@ ifneq ($(strip $(CONVERT_TO)),)
 	OPT_DEFS += -DINIT_EE_HANDS_$(shell echo ${SPLIT}|tr a-z A-Z)
 endif
 
-switch($(strip $(KEYBOARD))):
-    case crkbd/rev1:
-        RGB_MATRIX_ENABLE = yes
-	    OLED_ENABLE = yes
-	    SRC += oled-32.c rgb-matrix.c
-    case reviung/reviung34:
-        RGBLIGHT_ENABLE = yes
-        RGB_MATRIX_DRIVER = WS2812
-        #SRC += rgb-matrix.c
+ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
+    RGB_MATRIX_ENABLE = yes
+	OLED_ENABLE = yes
+	SRC += oled-32.c rgb-matrix.c
+else ifeq ($(strip $(KEYBOARD)), reviung/reviung34)
+    RGBLIGHT_ENABLE = yes
+    RGB_MATRIX_DRIVER = WS2812
+    #SRC += rgb-matrix.c
