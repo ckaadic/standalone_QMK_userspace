@@ -11,11 +11,5 @@
 #define RGB_DTEAL	5, 35, 35
 #define RGB_FLUOR	75, 122, 22
 
-// Custom definitions
-#ifdef KEYBOARD_reviung_reviung34
-#   define RGB_DI_PIN D3
-//#   define DRIVER_LED_TOTAL 9
-#	define RGBLED_NUM 9
-#endif
 
 #define RGBLIGHT_EFFECT_BREATHING
