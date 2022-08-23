@@ -45,6 +45,6 @@ switch($(strip $(KEYBOARD))):
 	    OLED_ENABLE = yes
 	    SRC += oled-32.c rgb-matrix.c
     case reviung/reviung34:
-        RGB_MATRIX_ENABLE = yes
-        RGB_MATRIX_DRIVER = WS2812
-        SRC += rgb-matrix.c
+        RGBLIGHT_ENABLE = yes
+        #RGB_MATRIX_DRIVER = WS2812
+        #SRC += rgb-matrix.c
