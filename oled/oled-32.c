@@ -37,11 +37,11 @@ void render_layer_symbol(void) {
         0x20, 0x9d, 0x9e, 0x9f, 0x20,
         0x20, 0xbd, 0xbe, 0xbf, 0x20,
         0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
-    if(layer_state_is(_FUN)) {
+    if(layer_state_is(FNC)) {
         oled_write_P(fun_layer, false);
-    } else if(layer_state_is(_NUM)) {
+    } else if(layer_state_is(NUM)) {
         oled_write_P(num_layer, false);
-    } else if(layer_state_is(_SYM)) {
+    } else if(layer_state_is(SYM)) {
         oled_write_P(sym_layer, false);
     } else {
         oled_write_P(default_layer, false);
