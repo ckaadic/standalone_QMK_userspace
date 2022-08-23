@@ -30,7 +30,7 @@
 #ifdef KEYBOARD_reviung_reviung34
 #   define RGB_DI_PIN D3
 //#   define DRIVER_LED_TOTAL 9
-//#	define RGBLED_NUM 9
+#	define RGBLED_NUM 9
 #endif
 
 #ifdef RGBLIGHT_ENABLE
