@@ -1,5 +1,4 @@
-#include "ckaadic.h"
-#include "config.h"
+
 
 // Home row mod-tap macros
 #define HM_A	LSFT_T(KC_A)
@@ -86,7 +85,7 @@
                                `--------------------'  `--------------------'
  */
 #define _SYMB \
-	KC_NO, KC_ESC,  M_UE,      M_AE,    M_OE,    KC_NO,   KC_NO, KC_PGUP, KC_UP,   RALT(KC_S), KC_NO, KC_NO, \
+	KC_NO, KC_ESC,  KC_NO,      KC_NO,    KC_NO,    KC_NO,   KC_NO, KC_PGUP, KC_UP,   RALT(KC_S), KC_NO, KC_NO, \
 	KC_NO, OSM_GUI, OSM_ALT,   OSM_CTL, OSM_SFT, C(KC_S),   KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_NO, \
 	KC_NO, KC_ENT,  CAPS_WORD, C(KC_C), KC_DEL,  C(KC_V),   KC_NO, KC_PGDN, KC_NO, KC_NO, KC_NO,    KC_NO, \
 	                             KC_NO, KC_NO, KC_NO,   KC_TAB,  KC_ENT,  KC_NO
