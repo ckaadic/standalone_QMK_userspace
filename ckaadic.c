@@ -44,24 +44,9 @@ static inline bool process_tap_hold(uint16_t hold_keycode, keyrecord_t *record) 
 
 
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
-	if (record->event.pressed) {
-#ifdef TAPPING_TERM_PER_KEY
-		tap_timer = timer_read();
-#endif
-#ifdef AUTO_CORRECT
-		extern bool process_autocorrect(uint16_t keycode, keyrecord_t* record);
-		if (!process_autocorrect(keycode, record)) {
-			return false;
-		}
-#endif
-	}
-	return true;
-}
-
-
-bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode) {
-        case M_AE:
+	switch (keycode) {
+#ifdef MACROS_ENABLED
+  case M_AE:
             if (record->event.pressed) {
                 SEND_STRING("\"a");
             }
@@ -76,6 +61,8 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING("\"u");
             }
             return false;
-    }
-    return process_record_user(keycode, record);
-};
+#endif
+  }
+	return true;
+}
+
