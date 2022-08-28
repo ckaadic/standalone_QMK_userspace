@@ -1,5 +1,12 @@
 #include "ckaadic.h"
 
+enum userspace_custom_keycodes  {
+    // Custom oneshot mod implementation with no timers.
+    M_AE = SAFE_RANGE,
+    M_OE,
+    M_UE,
+};
+
 #ifdef TAPPING_TERM_PER_KEY
 #	define IS_TYPING() (timer_elapsed(tap_timer) < TAPPING_TERM * 1.3)
 static uint16_t tap_timer = 0;
@@ -56,3 +63,25 @@ bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	}
 	return true;
 }
+
+
+bool process_record_kb(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode) {
+        case M_AE:
+            if (record->event.pressed) {
+                SEND_STRING("\"a");
+            }
+            return false;
+        case M_OE:
+            if (record->event.pressed) {
+                SEND_STRING("\"o");
+            }
+            return false;
+        case M_UE:
+            if (record->event.pressed) {
+                SEND_STRING("\"u");
+            }
+            return false;
+    }
+    return process_record_user(keycode, record);
+};
