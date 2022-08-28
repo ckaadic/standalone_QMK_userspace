@@ -1,6 +1,4 @@
 
-#include macros.c
-
 
 // Home row mod-tap macros
 #define HM_A	LSFT_T(KC_A)
