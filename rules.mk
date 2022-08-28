@@ -30,6 +30,7 @@ RGBLIGHT_ENABLE = no
 SWAP_HANDS_ENABLE = no
 SPACE_CADET_ENABLE = no
 
+SRC += macros.c
 
 ifeq ($(strip $(MCU)), atmega32u4)
 	LTO_ENABLE = yes
