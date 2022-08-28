@@ -1,4 +1,5 @@
 #include "ckaadic.h"
+#include "config.h"
 
 // Home row mod-tap macros
 #define HM_A	LSFT_T(KC_A)
