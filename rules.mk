@@ -7,6 +7,8 @@ EXTRAKEY_ENABLE = yes
 WAIT_FOR_USB = yes
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = no
+KEY_OVERRIDE_ENABLE = yes
+CAPS_WORD_ENABLE = yes
 
 # Disable unused features
 #VIA_ENABLE = no
