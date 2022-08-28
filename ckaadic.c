@@ -1,11 +1,5 @@
 #include "ckaadic.h"
 
-enum userspace_custom_keycodes  {
-    // Custom oneshot mod implementation with no timers.
-    M_AE = SAFE_RANGE,
-    M_OE,
-    M_UE,
-};
 
 #ifdef TAPPING_TERM_PER_KEY
 #	define IS_TYPING() (timer_elapsed(tap_timer) < TAPPING_TERM * 1.3)
