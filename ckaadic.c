@@ -55,12 +55,12 @@ bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
             if (record->event.pressed) {
                 SEND_STRING("\"o");
             }
-            break;
+            return false;
         case M_UE:
             if (record->event.pressed) {
                 SEND_STRING("\"u");
             }
-            break;
+            return false;
   }
 	return true;
 }
