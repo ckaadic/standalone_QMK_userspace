@@ -11,9 +11,9 @@
 #define HM_QUOT	LSFT_T(KC_QUOT)
 #define HRML(k1,k2,k3,k4) LGUI_T(k1),LALT_T(k2),LCTL_T(k3),LSFT_T(k4)
 #define HRMR(k1,k2,k3,k4) LSFT_T(k1),LCTL_T(k2),LALT_T(k3),LGUI_T(k4)
-#define M_AE
-#define M_UE
-#define M_OE
+#define M_AE	KC_NO
+#define M_UE	KC_NO
+#define M_OE	KC_NO
 
 // One shot mods
 #ifdef NO_ACTION_ONESHOT
