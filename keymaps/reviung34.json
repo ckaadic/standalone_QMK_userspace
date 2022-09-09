@@ -7,6 +7,7 @@
 		[ "C_34(HRM(_BASE))" ],
 		[ "C_34(_NUMB)" ],
 		[ "C_34(_SYMB)" ],
-		[ "C_34(_FUNC)" ]
+		[ "C_34(_FUNC)" ],
+		[ "C_34(HRM(_CANARY))" ]
 	]
 }
