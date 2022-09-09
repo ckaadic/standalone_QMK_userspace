@@ -45,7 +45,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NO, \
 	KC_NO, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                         KC_DEL,  SYM,     KC_BSPC,     KC_SPC,  NUM,     KC_TAB
+	                         KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -61,7 +61,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                    	 KC_DEL,  SYM,     KC_BSPC,     KC_SPC,  NUM,     KC_TAB
+	                    	 KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -107,7 +107,7 @@
 	KC_NO, DF(BSE), DF(CMK), DF(CAN), KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
-	                           KC_NO, KC_NO, KC_NO,     KC_NO, KC_NO, KC_NO
+	                           KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
