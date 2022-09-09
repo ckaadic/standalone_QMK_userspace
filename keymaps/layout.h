@@ -38,6 +38,7 @@
 #define NUM 2
 #define SYM 3
 #define FNC 4
+#define CAN 5
 
 // Default 3x6_3 split layout
 #define _BASE \
@@ -60,6 +61,22 @@
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
+	                    KC_DEL, LT(SYM,KC_BSPC), OSM_SFT,     KC_SPC, LT(NUM,KC_TAB), KC_ENT
+/* ,-----------------------------------------.                ,-----------------------------------------.
+   |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
+   |------+------+------+------+------+------|                |------+------+------+------+------+------|
+   |      |  A   |  R   |  S   |  T   |  G   |                |  M   |  N   |  E   |  I   |  O   |      |
+   |------+------+------+------+------+------|                |------+------+------+------+------+------|
+   |      |  Z   |  X   |  C   |  D   |  V   |                |  K   |  H   | , <  | . >  | / ?  |      |
+   `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
+                               | DEL |_SYMB | OSM_ |  |RSFT_T|_NUMB | ENT  |
+                               |      | BSPC | SFT  |  | SPC  | TAB  |      |
+                               `--------------------'  `--------------------'
+ */
+#define _CANARY \
+	KC_NO, KC_W,    KC_L     KC_Y,    KC_P,    KC_B,        KC_Z,    KC_F,    KC_O,    KC_U,    KC_QUOT, KC_NO, \
+	KC_NO, KC_C,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_A,    KC_NO, \
+	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
 	                    KC_DEL, LT(SYM,KC_BSPC), OSM_SFT,     KC_SPC, LT(NUM,KC_TAB), KC_ENT
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
@@ -103,7 +120,7 @@
                                `--------------------'  `--------------------'
  */
 #define _FUNC \
-	KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
+	KC_NO, DF(BSE), DF(CMK), DF(CAN), KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
 	                           KC_NO, KC_NO, KC_NO,     KC_NO, KC_NO, KC_NO
