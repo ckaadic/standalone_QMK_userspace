@@ -28,9 +28,6 @@
 #	define OSM_GUI OSM(MOD_LGUI)
 #endif
 
-// Navigation shortcuts
-#define RSA_UP RSA(KC_UP)
-#define RSA_DN RSA(KC_DOWN)
 
 // Layers
 #define BSE 0
