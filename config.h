@@ -32,18 +32,6 @@
     #define RGB_DI_PIN D3
 //#define DRIVER_LED_TOTAL 9
     #define RGBLED_NUM 9
-#elif KEYBOARD_eternal_keypad
-    #undef RGB_DI_PIN
-    #define RGB_DI_PIN D3
-    #define RGBLED_NUM 16
-    #define RGBLIGHT_HUE_STEP 8
-    #define RGBLIGHT_SAT_STEP 8
-    #define RGBLIGHT_VAL_STEP 8
-    #define RGBLIGHT_LIMIT_VAL 255 /* The maximum brightness level */
-    #define RGBLIGHT_SLEEP
-    #define RGBLIGHT_BREATHE_TABLE_SIZE 256
-    #define RGBLIGHT_EFFECT_BREATHE_CENTER 1.85  // 1 to 2.7
-    #define RGBLIGHT_EFFECT_BREATHE_MAX    255 
 #endif
 
 #ifdef RGBLIGHT_ENABLE
