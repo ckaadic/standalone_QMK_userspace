@@ -1,0 +1,12 @@
+{
+	"keyboard": "klor",
+	"keymap": "ckaadic",
+	"layout": "LAYOUT_36key_2enc_w",
+	"layers": [
+		[ "C_36_2(HRM(_COLE))" ],
+		[ "C_36_2(HRM(_BASE))" ],
+		[ "C_36_2(_NUMB)" ],
+		[ "C_36_2(_SYMB)" ],
+		[ "C_36_2(_FUNC)" ]
+	]
+}
