@@ -2,9 +2,9 @@
 #include "config.h"
 
 // Layers
-#define _LOWER 2
-#define _RAISE 3
-#define _ADJUST 4
+//#define _LOWER 2
+//#define _RAISE 3
+//#define _ADJUST 4
 
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	switch (keycode) {
