@@ -150,7 +150,7 @@
 // Layout aliases
 #define LAYOUT_corne_w(...) LAYOUT_split_3x6_3(__VA_ARGS__)
 #define LAYOUT_36key_w(...) LAYOUT_split_3x5_3(__VA_ARGS__)
-#define LAYOUT_36key_2enc_w(...) LAYOUT(__VA_ARGS__)
+#define LAYOUT_44key_2enc_w(...) LAYOUT(__VA_ARGS__)
 #define LAYOUT_34key_w(...) LAYOUT_split_3x5_2(__VA_ARGS__)
 #define LAYOUT_reviung34_w(...) LAYOUT_reviung34(__VA_ARGS__)
 
