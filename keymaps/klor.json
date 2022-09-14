@@ -1,7 +1,7 @@
 {
 	"keyboard": "klor",
 	"keymap": "ckaadic",
-	"layout": "LAYOUT_44key_2enc_w",
+	"layout": "LAYOUT_42key_2enc_w",
 	"layers": [
 		[ "C_44_2(HRM(_COLE))" ],
 		[ "C_44_2(HRM(_BASE))" ],
