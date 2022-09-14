@@ -8,7 +8,7 @@
 // └───────────────────────────────────────────────────────────┘
 
 char layer_state_str[24];
-
+char o_text[24] = "";
 
 
 // ┌───────────────────────────────────────────────────────────┐
@@ -128,7 +128,7 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
         default:
             strcpy ( layer_state_str, "XXXXXX");
     }
-    strcpy ( "", layer_state_str );
+    strcpy ( o_text, layer_state_str );
   //return state;
     return update_tri_layer_state(state, 2, 3, 4);
 }
@@ -151,6 +151,7 @@ bool oled_task_kb(void) {
         return false;
     }
     if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
+        oled_write_ln(o_text, false);
         render_os_lock_status();
 
     } else {  // ─────────────────────────────────────────── SECONDARY SIDE
