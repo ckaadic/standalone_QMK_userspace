@@ -35,7 +35,7 @@ jobs:
 
     - name: Copy custom boards
       run: |
-        cp custom_keyboards/* keyboards/
+        cp -r custom_keyboards/* keyboards/
 
     - name: Setup variables
       id: vars
