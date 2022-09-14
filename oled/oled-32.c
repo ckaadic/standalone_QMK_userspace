@@ -4,7 +4,7 @@
 #include "oled-32.h"
 
 #define BSE 0
-#define CMK 1
+#define QWT 1
 #define NUM 2
 #define SYM 3
 #define FNC 4

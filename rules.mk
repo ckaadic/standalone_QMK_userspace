@@ -49,7 +49,13 @@ ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
 else ifeq ($(strip $(KEYBOARD)), reviung/reviung34)
     RGBLIGHT_ENABLE = yes
     RGB_MATRIX_DRIVER = WS2812
-    #SRC += rgb-matrix.c
 else ifeq ($(strip $(KEYBOARD)), eternal_keypad)
 	RGBLIGHT_ENABLE = yes
+else ifeq ($(strip $(KEYBOARD)), klor)
+	OLED_ENABLE = yes
+	OLED_DRIVER = SSD1306
+	ENCODER_ENABLE = yes
+	HAPTIC_ENABLE = yes
+	RGB_MATRIX_ENABLE = yes
+	SRC += oled-32.c rgb-matrix.c
 endif

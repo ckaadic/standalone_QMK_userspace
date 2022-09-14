@@ -5,8 +5,8 @@
 	"layers": [
 		[ "C_36(HRM(_CANARY))" ],
 		[ "C_36(HRM(_BASE))" ],
-		[ "C_36(_NUMB)" ],
-		[ "C_36(_SYMB)" ],
-		[ "C_36(_FUNC)" ]
+		[ "C_36(_LOWER)" ],
+		[ "C_36(_RAISE)" ],
+		[ "C_36(_ADJUST)" ]
 	]
 }

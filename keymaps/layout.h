@@ -32,9 +32,9 @@
 // Layers
 #define BSE 0
 #define CMK 1
-#define NUM 2
-#define SYM 3
-#define FNC 4
+#define LOWER 2
+#define RAISE 3
+#define ADJUST 4
 #define CAN 5
 
 // Default 3x6_3 split layout
@@ -42,7 +42,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NO, \
 	KC_NO, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                         KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
+	                         KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -50,7 +50,7 @@
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      |  Z   |  X   |  C   |  V   |  B   |                |  N   |  M   | , <  | . >  | / ?  |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               | DEL  |_SYMB | OSM_ |  |RSFT_T|_NUMB | ENT  |
+                               | DEL  |_RAISE | OSM_ |  |RSFT_T|_LOWER | ENT  |
                                |      | BSPC | SFT  |  | SPC  | TAB  |      |
                                `--------------------'  `--------------------'
  */
@@ -58,7 +58,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                    	 KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
+	                    	    KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -66,11 +66,11 @@
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      |  Z   |  X   |  C   |  D   |  V   |                |  K   |  H   | , <  | . >  | / ?  |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               | DEL |_SYMB | OSM_ |  |RSFT_T|_NUMB | ENT  |
+                               | DEL |_RAISE | OSM_ |  |RSFT_T|_LOWER | ENT  |
                                |      | BSPC | SFT  |  | SPC  | TAB  |      |
                                `--------------------'  `--------------------'
  */
-#define _NUMB \
+#define _LOWER \
 	KC_NO, KC_SCLN, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,     KC_ASTR, KC_MINS, KC_EQL,  KC_PLUS, KC_GRV,  KC_NO, \
 	KC_NO, KC_COLN, KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,     KC_3,    KC_2,    KC_1,    KC_0,    KC_4,    KC_NO, \
 	KC_NO, KC_CIRC, KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,      KC_7,    KC_6,    KC_5,    KC_9,    KC_8,    KC_NO, \
@@ -82,10 +82,10 @@
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      | CAPS |  7   |  8   |  9   |  0   |                |      |RSA_DN|RSA_UP|      |      |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               |      |_FUNC | GESC |  |      |      |      |
+                               |      |_ADJUST | GESC |  |      |      |      |
                                `--------------------'  `--------------------'
  */
-#define _SYMB \
+#define _RAISE \
 	KC_NO, KC_ESC,  M_UE,      M_AE,    M_OE,    KC_NO,   KC_NO, KC_PGUP, KC_UP,   RALT(KC_S), KC_NO, KC_NO, \
 	KC_NO, OSM_GUI, OSM_ALT,   OSM_CTL, OSM_SFT, C(KC_S),   KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_NO, \
 	KC_NO, KC_ENT,  CAPS_WORD, C(KC_C), KC_DEL,  C(KC_V),   KC_NO, KC_PGDN, KC_NO, KC_NO, KC_NO,    KC_NO, \
@@ -97,10 +97,10 @@
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      |      |      |      |      |      |                |  &   |  _   |  +   |  |   |      |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               |      |      |      |  |      |_FUNC |      |
+                               |      |      |      |  |      |_ADJUST |      |
                                `--------------------'  `--------------------'
  */
-#define _FUNC \
+#define _ADJUST \
 	KC_NO, DF(BSE), DF(CMK), DF(CAN), KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
@@ -119,7 +119,7 @@
 	KC_NO, KC_W,    KC_L,    KC_Y,    KC_P,    KC_B,        KC_Z,    KC_F,    KC_O,    KC_U,    KC_QUOT, KC_NO, \
 	KC_NO, KC_C,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_A,    KC_NO, \
 	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
-	                    	 KC_DEL,  MO(SYM), KC_BSPC,     KC_SPC,  MO(NUM), KC_TAB
+	                    	    KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -127,7 +127,7 @@
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      |  Z   |  X   |  C   |  D   |  V   |                |  K   |  H   | , <  | . >  | / ?  |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               | DEL |_SYMB | OSM_ |  |RSFT_T|_NUMB | ENT  |
+                               | DEL |_RAISE | OSM_ |  |RSFT_T|_LOWER | ENT  |
                                |      | BSPC | SFT  |  | SPC  | TAB  |      |
                                `--------------------'  `--------------------'
  */
