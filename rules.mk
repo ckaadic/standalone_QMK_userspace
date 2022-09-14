@@ -57,5 +57,5 @@ else ifeq ($(strip $(KEYBOARD)), klor)
 	ENCODER_ENABLE = yes
 	HAPTIC_ENABLE = yes
 	RGB_MATRIX_ENABLE = yes
-	SRC += oled-32.c rgb-matrix.c
+	SRC += oled-64.c rgb-matrix.c
 endif
