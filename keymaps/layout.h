@@ -42,7 +42,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NO, \
 	KC_NO, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                         KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
+	                         KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -58,7 +58,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                    	    KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
+	                    	    KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -74,7 +74,7 @@
 	KC_NO, KC_SCLN, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,     KC_ASTR, KC_MINS, KC_EQL,  KC_PLUS, KC_GRV,  KC_NO, \
 	KC_NO, KC_COLN, KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,     KC_3,    KC_2,    KC_1,    KC_0,    KC_4,    KC_NO, \
 	KC_NO, KC_CIRC, KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,      KC_7,    KC_6,    KC_5,    KC_9,    KC_8,    KC_NO, \
-	                           KC_NO, MO(FNC), KC_TRNS,     KC_NO, KC_NO, KC_NO
+	                         KC_NO,   RAISE,   KC_TRNS,     KC_NO,   LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -89,7 +89,7 @@
 	KC_NO, KC_ESC,  M_UE,      M_AE,    M_OE,    KC_NO,   KC_NO, KC_PGUP, KC_UP,   RALT(KC_S), KC_NO, KC_NO, \
 	KC_NO, OSM_GUI, OSM_ALT,   OSM_CTL, OSM_SFT, C(KC_S),   KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_NO, \
 	KC_NO, KC_ENT,  CAPS_WORD, C(KC_C), KC_DEL,  C(KC_V),   KC_NO, KC_PGDN, KC_NO, KC_NO, KC_NO,    KC_NO, \
-	                             KC_NO, KC_NO, KC_NO,   KC_TAB,  KC_ENT,  KC_NO
+	                             KC_NO, RAISE, KC_NO,   KC_TAB,  LOWER,  KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |      |  [   |  {   |  }   |      |                |  ^   |  (   |  )   |  ]   |  ~   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -104,7 +104,7 @@
 	KC_NO, DF(BSE), DF(CMK), DF(CAN), KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
-	                         KC_NO, KC_NO, KC_NO,     KC_NO, KC_NO, KC_NO
+	                         KC_NO, RAISE, KC_NO,     KC_NO, LOWER, KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -119,7 +119,7 @@
 	KC_NO, KC_W,    KC_L,    KC_Y,    KC_P,    KC_B,        KC_Z,    KC_F,    KC_O,    KC_U,    KC_QUOT, KC_NO, \
 	KC_NO, KC_C,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_A,    KC_NO, \
 	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
-	                    	    KC_DEL,  LOWER,   KC_BSPC,     KC_SPC,  RAISE,   KC_TAB
+	                    	    KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
