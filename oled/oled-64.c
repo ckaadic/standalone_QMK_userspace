@@ -8,7 +8,6 @@
 // └───────────────────────────────────────────────────────────┘
 
 char layer_state_str[24];
-char o_text[24] = "";
 
 
 
@@ -153,8 +152,6 @@ bool oled_task_kb(void) {
         return false;
     }
     if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
-
-        oled_write_ln(o_text, false);
         render_os_lock_status();
 
     } else {  // ─────────────────────────────────────────── SECONDARY SIDE
