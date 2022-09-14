@@ -24,18 +24,18 @@ jobs:
       uses: actions/checkout@v2
       with:
         path: users/${{ github.actor }}
-        token: ${{ secrets.GH_PAT }}
         persist-credentials: false
 
     - name: Checkout custom boards
       uses: actions/checkout@v3
       with:
         repository: ${{ github.actor }}/keyboards
+        token: ${{ secrets.GH_PAT }}
         path: custom_keyboards
 
     - name: Copy custom boards
       run: |
-        cp custem_keyboards/* keyboards/
+        cp custom_keyboards/* keyboards/
 
     - name: Setup variables
       id: vars
