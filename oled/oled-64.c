@@ -108,28 +108,27 @@ void render_os_lock_status(void) {
 
 // layer status ──────────────────────────────────────────┐
 
-int layerstate = 0;
-
 layer_state_t layer_state_set_kb(layer_state_t state) {
-      switch (get_highest_layer(layer_state | default_layer_state)) {
-            case 0:
-                strcpy ( layer_state_str, "BASE QWERTY");
-                break;
-            case 1:
-                strcpy ( layer_state_str, "BASE COLEMAK");
-                break;
-            case 2:
-                strcpy ( layer_state_str, "LOWER");
-                break;
-            case 3:
-                strcpy ( layer_state_str, "RAISE");
-                break;
-            case 4:
-                strcpy ( layer_state_str, "ADJUST");
-                break;
-            default:
-                strcpy ( layer_state_str, "XXXXXX");
-        }
+    int layerstate = 0;
+    switch (get_highest_layer(layer_state | default_layer_state)) {
+        case 0:
+            strcpy ( layer_state_str, "BASE QWERTY");
+            break;
+        case 1:
+            strcpy ( layer_state_str, "BASE COLEMAK");
+            break;
+        case 2:
+            strcpy ( layer_state_str, "LOWER");
+            break;
+        case 3:
+            strcpy ( layer_state_str, "RAISE");
+            break;
+        case 4:
+            strcpy ( layer_state_str, "ADJUST");
+            break;
+        default:
+            strcpy ( layer_state_str, "XXXXXX");
+    }
   //return state;
     return update_tri_layer_state(state, 2, 3, 4);
 }
