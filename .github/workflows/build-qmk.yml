@@ -8,13 +8,15 @@ jobs:
     container: qmkfm/qmk_cli
     strategy:
       fail-fast: false
+      keyboard: [corne,reviung34,eternal_keypad]
+      conv: [kb2040, '']
       matrix:
         include:
           - keyboard: basbousa 
-          - keyboard: [corne,reviung34,eternal_keypad]
-            conv: [kb2040, '']
           - keyboard: klor
-            conv: [kb2040,promicro_rp2040]
+            conv: kb2040
+          - keyboard: klor
+            conv: promicro_rp2040
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v3
