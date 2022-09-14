@@ -9,8 +9,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [corne,reviung34,klor]
-        conv: [kb2040, '']
+        include:
+          - keyboard: basbousa #[corne,reviung34,klor]
+            #conv: [kb2040, '']
 
     steps:
     - name: Checkout QMK
