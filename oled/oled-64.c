@@ -132,7 +132,7 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
                 strcpy ( layer_state_str, "XXXXXX");
         }
   //return state;
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    return update_tri_layer_state(state, 2, 3, 4);
 }
 
 
