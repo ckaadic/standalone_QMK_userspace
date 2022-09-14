@@ -3,7 +3,7 @@
 	"keymap": "ckaadic",
 	"layout": "LAYOUT_36key_w",
 	"layers": [
-		[ "C_36(HRM(_COLE))" ],
+		[ "C_36(HRM(_CANARY))" ],
 		[ "C_36(HRM(_BASE))" ],
 		[ "C_36(_NUMB)" ],
 		[ "C_36(_SYMB)" ],
