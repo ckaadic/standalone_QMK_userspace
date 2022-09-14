@@ -8,9 +8,9 @@ jobs:
     container: qmkfm/qmk_cli
     strategy:
       fail-fast: false
-      keyboard: [corne,reviung34,eternal_keypad]
-      conv: [kb2040, '']
       matrix:
+        keyboard: [corne,reviung34,eternal_keypad]
+        conv: [kb2040, '']
         include:
           - keyboard: basbousa 
           - keyboard: klor
