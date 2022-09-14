@@ -18,7 +18,8 @@
 #	define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
 #endif
 
-#ifdef OLED_ENABLE
+#ifdef KEYBOARD_reviung_reviung34
+#elseif OLED_ENABLE
     #define SPLIT_LAYER_STATE_ENABLE
     #define SPLIT_LED_STATE_ENABLE
     #define SPLIT_MODS_ENABLE
