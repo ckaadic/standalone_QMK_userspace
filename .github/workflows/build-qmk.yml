@@ -10,9 +10,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - keyboard: basbousa #[corne,reviung34,klor]
-            #conv: [kb2040, '']
-
+          - keyboard: basbousa 
+          - keyboard: [corne,reviung34,eternal_keypad]
+            conv: [kb2040, '']
+          - keyboard: klor
+            conv: [kb2040,promicro_rp2040]
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v3
