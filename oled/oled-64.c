@@ -109,7 +109,6 @@ void render_os_lock_status(void) {
 // layer status ──────────────────────────────────────────┐
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
-    int layerstate = 0;
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case 0:
             strcpy ( layer_state_str, "BASE QWERTY");
