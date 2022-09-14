@@ -1,5 +1,5 @@
 #include QMK_KEYBOARD_H
-
+#include "oled-64.h"
 
 #ifdef OLED_ENABLE
 
