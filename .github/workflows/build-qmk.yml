@@ -9,17 +9,15 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [fifi,reviung34]
+        keyboard: [corne,reviung34,klor]
         conv: [kb2040, '']
-        include:
-        - keyboard: fifi
 
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v3
       with:
         repository: qmk/qmk_firmware
-        ref: develop
+        #ref: develop
         submodules: true
 
     - name: Checkout userspace
@@ -27,6 +25,12 @@ jobs:
       with:
         path: users/${{ github.actor }}
         persist-credentials: false
+
+    - name: Checkout custom boards
+      uses: actions/checkout@v3
+      with:
+        repository: ${{ github.actor }}/keyboards
+        path: keyboards
 
     - name: Setup variables
       id: vars
