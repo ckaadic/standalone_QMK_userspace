@@ -131,7 +131,6 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
             default:
                 strcpy ( layer_state_str, "XXXXXX");
         }
-    }
   //return state;
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
