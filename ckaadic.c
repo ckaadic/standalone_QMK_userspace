@@ -6,6 +6,13 @@
 #define RAISE 3
 #define ADJUST 4
 
+void keyboard_post_init_user(void) {
+  // Call the post init code.
+  #if HAPTIC_ENABLE
+    haptic_disable(); // disables per key haptic feedback by default
+  #endif //HAPTIC ENABLE
+}
+
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	switch (keycode) {
         case M_AE:
