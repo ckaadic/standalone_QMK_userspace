@@ -131,8 +131,6 @@ layer_state_t layer_state_set_kb(layer_state_t state) {
             default:
                 strcpy ( layer_state_str, "XXXXXX");
         }
-      if (dmacro_num < 1) {
-          strcpy ( o_text, layer_state_str );
     }
   //return state;
     return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
@@ -156,13 +154,6 @@ bool oled_task_kb(void) {
         return false;
     }
     if (is_keyboard_master()) {  // ────────────────────────── PRIMARY SIDE
-
-        // layer status ──────────────────────────────────────────────────┐
-        #ifdef DYNAMIC_MACRO_ENABLE
-            if(dmacro_num == 1){ oled_write_P(rec_ico, false); }
-            if(dmacro_num == 2){ oled_write_P(stop_ico, false); }
-            if(dmacro_num == 3){ oled_write_P(play_ico, false); }
-        #endif //DYNAMIC_MACRO_ENABLE
 
         oled_write_ln(o_text, false);
         render_os_lock_status();
