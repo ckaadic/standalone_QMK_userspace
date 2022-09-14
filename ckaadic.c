@@ -2,9 +2,9 @@
 #include "config.h"
 
 // Layers
-//#define _LOWER 2
-//#define _RAISE 3
-//#define _ADJUST 4
+#define LOWER 2
+#define RAISE 3
+#define ADJUST 4
 
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	switch (keycode) {
@@ -25,27 +25,27 @@ bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
             return false;
         case LOWER:
             if (record->event.pressed) {
-                layer_on(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                layer_on(LOWER);
+                update_tri_layer(LOWER, RAISE, ADJUST);
             } else {
-                layer_off(_LOWER);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                layer_off(LOWER);
+                update_tri_layer(LOWER, RAISE, ADJUST);
             }
             return false;
         case RAISE:
             if (record->event.pressed) {
-                layer_on(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                layer_on(RAISE);
+                update_tri_layer(LOWER, RAISE, ADJUST);
             } else {
-                layer_off(_RAISE);
-                update_tri_layer(_LOWER, _RAISE, _ADJUST);
+                layer_off(RAISE);
+                update_tri_layer(LOWER, RAISE, ADJUST);
             }
             return false;
         case ADJUST:
             if (record->event.pressed) {
-                layer_on(_ADJUST);
+                layer_on(ADJUST);
             } else {
-                layer_off(_ADJUST);
+                layer_off(ADJUST);
             }
             return false;
   }
@@ -88,7 +88,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
 
-      if(IS_LAYER_ON(_RAISE)){
+      if(IS_LAYER_ON(RAISE)){
         if(clockwise){
           tap_code(KC_WH_R);
         }
@@ -108,13 +108,13 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // └───────────────────────────────────────────────────────────┘
 
     } else if (index == 1) {
-      if(IS_LAYER_ON(_LOWER)){
+      if(IS_LAYER_ON(LOWER)){
           if (clockwise) {
               tap_code(KC_MNXT);
           } else {
               tap_code(KC_MPRV);
           }
-      }else if(IS_LAYER_ON(_RAISE)){
+      }else if(IS_LAYER_ON(RAISE)){
         if(clockwise){
           tap_code(KC_WH_D);
         }
