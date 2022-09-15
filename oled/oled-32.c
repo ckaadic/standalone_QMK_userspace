@@ -71,62 +71,64 @@ void render_layer_name(void) {
 }
 
 void render_mod_state(uint8_t modifiers) {
-    static const char PROGMEM shift_line_1[] = {
-        0x85, 0x86, 0x87, 0};
-    static const char PROGMEM shift_line_2[] = {
-        0xa5, 0xa6, 0xa7, 0};
+        if (is_keyboard_master()) {
+        static const char PROGMEM shift_line_1[] = {
+            0x85, 0x86, 0x87, 0};
+        static const char PROGMEM shift_line_2[] = {
+            0xa5, 0xa6, 0xa7, 0};
 
-    static const char PROGMEM ctrl_line_1[] = {
-        0x88, 0x89, 0x8a, 0x8b, 0};
-    static const char PROGMEM ctrl_line_2[] = {
-        0xa8, 0xa9, 0xaa, 0xab, 0};
+        static const char PROGMEM ctrl_line_1[] = {
+            0x88, 0x89, 0x8a, 0x8b, 0};
+        static const char PROGMEM ctrl_line_2[] = {
+            0xa8, 0xa9, 0xaa, 0xab, 0};
 
-    static const char PROGMEM os_line_1[] = {
-        0x8c, 0x8d, 0x8e, 0};
-    static const char PROGMEM os_line_2[] = {
-        0xac, 0xad, 0xae, 0};
+        static const char PROGMEM os_line_1[] = {
+            0x8c, 0x8d, 0x8e, 0};
+        static const char PROGMEM os_line_2[] = {
+            0xac, 0xad, 0xae, 0};
 
-    static const char PROGMEM alt_line_1[] = {
-        0x8f, 0x90, 0x91, 0};
-    static const char PROGMEM alt_line_2[] = {
-        0xaf, 0xb0, 0xb1, 0};
+        static const char PROGMEM alt_line_1[] = {
+            0x8f, 0x90, 0x91, 0};
+        static const char PROGMEM alt_line_2[] = {
+            0xaf, 0xb0, 0xb1, 0};
 
-    if (modifiers & MOD_MASK_GUI) {
-        oled_write(" ", false);
-        oled_write_ln_P(os_line_1, false);
-        oled_write(" ", false);
-        oled_write_ln_P(os_line_2, false);
-    } else {
-        oled_write_ln("", false);
-        oled_write_ln("", false);
-    }
+        if (modifiers & MOD_MASK_GUI) {
+            oled_write(" ", false);
+            oled_write_ln_P(os_line_1, false);
+            oled_write(" ", false);
+            oled_write_ln_P(os_line_2, false);
+        } else {
+            oled_write_ln("", false);
+            oled_write_ln("", false);
+        }
 
-    if (modifiers & MOD_MASK_SHIFT) {
-        oled_write(" ", false);
-        oled_write_ln_P(shift_line_1, false);
-        oled_write(" ", false);
-        oled_write_ln_P(shift_line_2, false);
-    } else {
-        oled_write_ln("", false);
-        oled_write_ln("", false);
-    }
+        if (modifiers & MOD_MASK_SHIFT) {
+            oled_write(" ", false);
+            oled_write_ln_P(shift_line_1, false);
+            oled_write(" ", false);
+            oled_write_ln_P(shift_line_2, false);
+        } else {
+            oled_write_ln("", false);
+            oled_write_ln("", false);
+        }
 
-    if (modifiers & MOD_MASK_ALT) {
-        oled_write(" ", false);
-        oled_write_ln_P(alt_line_1, false);
-        oled_write(" ", false);
-        oled_write_ln_P(alt_line_2, false);
-    } else {
-        oled_write_ln("", false);
-        oled_write_ln("", false);
-    }
+        if (modifiers & MOD_MASK_ALT) {
+            oled_write(" ", false);
+            oled_write_ln_P(alt_line_1, false);
+            oled_write(" ", false);
+            oled_write_ln_P(alt_line_2, false);
+        } else {
+            oled_write_ln("", false);
+            oled_write_ln("", false);
+        }
 
-    if (modifiers & MOD_MASK_CTRL) {
-        oled_write_ln_P(ctrl_line_1, false);
-        oled_write_ln_P(ctrl_line_2, false);
-    } else {
-        oled_write_ln("", false);
-        oled_write_ln("", false);
+        if (modifiers & MOD_MASK_CTRL) {
+            oled_write_ln_P(ctrl_line_1, false);
+            oled_write_ln_P(ctrl_line_2, false);
+        } else {
+            oled_write_ln("", false);
+            oled_write_ln("", false);
+        }
     }
 }
 
