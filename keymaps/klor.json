@@ -4,7 +4,7 @@
 	"layout": "LAYOUT_42key_2enc_w",
 	"layers": [
 		[ "C_42_2(HRM(_CANARY))" ],
-		[ "C_42_2(HRM(_BASE))" ],
+		[ "C_42_2(HRM(_QWERTY))" ],
 		[ "C_42_2(_LOWER)" ],
 		[ "C_42_2(_RAISE)" ],
 		[ "C_42_2(_ADJUST)" ]

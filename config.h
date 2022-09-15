@@ -19,6 +19,8 @@
 #endif
 
 #ifdef KEYBOARD_klor
+#elif KEYBOARD_crkbd_rev1
+    #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #elif OLED_ENABLE
     #define SPLIT_LAYER_STATE_ENABLE
     #define SPLIT_LED_STATE_ENABLE
