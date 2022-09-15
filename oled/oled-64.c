@@ -3,10 +3,6 @@
 
 #ifdef OLED_ENABLE
 
-// ┌───────────────────────────────────────────────────────────┐
-// │ d y n a m i c   m a c r o                                 │
-// └───────────────────────────────────────────────────────────┘
-
 char layer_state_str[24];
 char o_text[24] = "";
 
@@ -111,10 +107,10 @@ void render_os_lock_status(void) {
 layer_state_t layer_state_set_kb(layer_state_t state) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case 0:
-            strcpy ( layer_state_str, "BASE QWERTY");
+            strcpy ( layer_state_str, "BASE CANARY");
             break;
         case 1:
-            strcpy ( layer_state_str, "BASE COLEMAK");
+            strcpy ( layer_state_str, "BASE QWERTY");
             break;
         case 2:
             strcpy ( layer_state_str, "LOWER");
