@@ -1,14 +1,6 @@
 #pragma once
 
 // Home row mod-tap macros
-#define HM_A	LSFT_T(KC_A)
-#define HM_S	LALT_T(KC_S)
-#define HM_D	LCTL_T(KC_D)
-#define HM_F	LGUI_T(KC_F)
-#define HM_J	LGUI_T(KC_J)
-#define HM_K	LCTL_T(KC_K)
-#define HM_L	LALT_T(KC_L)
-#define HM_QUOT	LSFT_T(KC_QUOT)
 #define HRML(k1,k2,k3,k4) LGUI_T(k1),LALT_T(k2),LCTL_T(k3),LSFT_T(k4)
 #define HRMR(k1,k2,k3,k4) LSFT_T(k1),LCTL_T(k2),LALT_T(k3),LGUI_T(k4)
 #define M_AE	RALT_T(KC_A)
