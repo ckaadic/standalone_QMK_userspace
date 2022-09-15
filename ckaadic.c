@@ -13,6 +13,17 @@ void keyboard_post_init_user(void) {
   #endif //HAPTIC ENABLE
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LSFT_T(KC_T):
+            return TAPPING_TERM - 150;
+        case LSFT_T(KC_N):
+            return TAPPING_TERM - 150;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	switch (keycode) {
         case M_AE:
