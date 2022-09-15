@@ -14,28 +14,15 @@
 #define M_AE	RALT_T(KC_A)
 #define M_UE	RALT_T(KC_U)
 #define M_OE	RALT_T(KC_O)
-
-// One shot mods
-#ifdef NO_ACTION_ONESHOT
-#	define OSM_SFT KC_LSFT
-#	define OSM_CTL KC_LCTL
-#	define OSM_ALT KC_LALT
-#	define OSM_GUI KC_LGUI
-#else
-#	define OSM_SFT OSM(MOD_LSFT)
-#	define OSM_CTL OSM(MOD_LCTL)
-#	define OSM_ALT OSM(MOD_LALT)
-#	define OSM_GUI OSM(MOD_LGUI)
-#endif
+#define M_CW	CAPS_WORD
 
 
 // Layers
 #define BSE 0
-#define CMK 1
+#define ALT 1
 #define LOWER 2
 #define RAISE 3
 #define ADJUST 4
-#define CAN 5
 
 // Default 3x6_3 split layout
 #define _BASE \
@@ -58,7 +45,7 @@
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                    	    KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
+	                    	 KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -86,10 +73,10 @@
                                `--------------------'  `--------------------'
  */
 #define _RAISE \
-	KC_NO, KC_ESC,  M_UE,      M_AE,    M_OE,    KC_NO,   KC_NO, KC_PGUP, KC_UP,   RALT(KC_S), KC_NO, KC_NO, \
-	KC_NO, OSM_GUI, OSM_ALT,   OSM_CTL, OSM_SFT, C(KC_S),   KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END,     KC_NO, \
-	KC_NO, KC_ENT,  CAPS_WORD, C(KC_C), KC_DEL,  C(KC_V),   KC_NO, KC_PGDN, KC_NO, KC_NO, KC_NO,    KC_NO, \
-	                             KC_NO, RAISE, KC_NO,   KC_TAB,  LOWER,  KC_NO
+	KC_NO, KC_ESC, M_UE,  M_AE,  M_OE,  KC_NO,   			KC_NO,   KC_PGUP, KC_UP,   RALT(KC_S), KC_NO,  KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, M_CW,  KC_ENT,   			KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,    KC_END, KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,      KC_NO,  KC_NO, \
+	                      KC_NO, RAISE, KC_NO,   			KC_TAB,  LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |      |  [   |  {   |  }   |      |                |  ^   |  (   |  )   |  ]   |  ~   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -101,10 +88,10 @@
                                `--------------------'  `--------------------'
  */
 #define _ADJUST \
-	KC_NO, DF(BSE), DF(CMK), DF(CAN), KC_NO,  KC_NO,    KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
+	KC_NO, DF(BSE), DF(ALT), KC_NO,   KC_NO,    KC_NO,      KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
 	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
-	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
-	                         KC_NO, RAISE, KC_NO,     KC_NO, LOWER, KC_NO
+	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    	KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
+	                         KC_NO,   RAISE,    KC_NO,      KC_NO, 	 LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -119,7 +106,7 @@
 	KC_NO, KC_W,    KC_L,    KC_Y,    KC_P,    KC_B,        KC_Z,    KC_F,    KC_O,    KC_U,    KC_QUOT, KC_NO, \
 	KC_NO, KC_C,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_A,    KC_NO, \
 	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
-	                    	    KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
+	                    	 KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|

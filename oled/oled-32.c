@@ -51,7 +51,7 @@ void render_layer_symbol(void) {
 void render_layer_name(void) {
    switch (get_highest_layer(layer_state | default_layer_state)) {
         case 0:
-            oled_write_P(PSTR(" COL "), false);
+            oled_write_P(PSTR(" CAN "), false);
             break;
         case 1:
             oled_write_P(PSTR("QWERT"), false);
