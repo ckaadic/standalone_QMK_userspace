@@ -25,7 +25,7 @@
     #define SPLIT_MODS_ENABLE
     #define SPLIT_OLED_ENABLE
     #define OLED_TIMEOUT 60000
-    #define OLED_FONT_H "oled/glcdfont.c"
+    //#define OLED_FONT_H "oled/glcdfont.c"
 #endif
 
 #ifdef KEYBOARD_reviung_reviung34
