@@ -5,6 +5,68 @@
 char layer_state_str[24];
 char o_text[24] = ""
 
+void render_os_lock_status(void) {
+    static const char PROGMEM sep_v[] = {0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0xC0, 0};
+    static const char PROGMEM sep_h1[] = {0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0};
+    static const char PROGMEM sep_h2[] = {0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0xE1, 0};
+    static const char PROGMEM face_1[] = {0x80, 0x81, 0x82, 0x83, 0x84, 0xE1, 0};
+    static const char PROGMEM face_2[] = {0xA0, 0xA1, 0xA2, 0xA3, 0xA4, 0xE1, 0};
+    static const char PROGMEM os_m_1[] = {0x95, 0x96, 0};
+    static const char PROGMEM os_m_2[] = {0xB5, 0xB6, 0};
+    static const char PROGMEM os_w_1[] = {0x97, 0x98, 0};
+    static const char PROGMEM os_w_2[] = {0xB7, 0xB8, 0};
+    static const char PROGMEM s_lock[] = {0x8F, 0x90, 0};
+    static const char PROGMEM n_lock[] = {0x91, 0x92, 0};
+    static const char PROGMEM c_lock[] = {0x93, 0x94, 0};
+    static const char PROGMEM b_lock[] = {0xE1, 0xE1, 0};
+
+
+// os mode status ────────────────────────────────────────┐
+
+    oled_write_ln_P(sep_v, false);
+
+    if (keymap_config.swap_lctl_lgui) {
+        oled_write_P(os_m_1, false); // ──── MAC
+    } else {
+        oled_write_P(os_w_1, false); // ──── WIN
+    }
+
+    oled_write_P(sep_h1, false);
+    oled_write_P(face_1, false);
+
+    if (keymap_config.swap_lctl_lgui) {
+        oled_write_P(os_m_2, false); // ──── MAC
+    } else {
+        oled_write_P(os_w_2, false); // ──── WIN
+    }
+
+    oled_write_P(sep_h1, false);
+    oled_write_P(face_2, false);
+    oled_write_ln_P(sep_v, false);
+
+
+// lock key layer status ─────────────────────────────────┐
+
+    led_t led_usb_state = host_keyboard_led_state();
+
+    if (led_usb_state.num_lock) {
+        oled_write_P(n_lock, false); // ──── NUMLOCK
+    } else {
+        oled_write_P(b_lock, false);
+    }
+    if (led_usb_state.caps_lock) {
+        oled_write_P(c_lock, false); // ─── CAPSLOCK
+    } else {
+        oled_write_P(b_lock, false);
+    }
+    if (led_usb_state.scroll_lock) { // ─ SCROLLLOCK
+        oled_write_P(s_lock, false);
+    } else {
+        oled_write_P(b_lock, false);
+    }
+
+}
+ 
 layer_state_t layer_state_set_kb(layer_state_t state) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
         case 0:
