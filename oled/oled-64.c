@@ -106,22 +106,19 @@ void render_os_lock_status(void) {
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
-        case _CANARY:
+        case 0:
             strcpy ( layer_state_str, "BASE CANARY");
             break;
-        case _COLE:
-            strcpy ( layer_state_str, "BASE COLEMAK");
-            break;
-        case _QWERTY:
+        case 1:
             strcpy ( layer_state_str, "BASE QWERTY");
             break;
-        case _LOWER:
+        case 2:
             strcpy ( layer_state_str, "LOWER");
             break;
-        case _RAISE:
+        case 3:
             strcpy ( layer_state_str, "RAISE");
             break;
-        case _ADJUST:
+        case 4:
             strcpy ( layer_state_str, "ADJUST");
             break;
         default:

@@ -7,22 +7,19 @@ char o_text[24] = "";
 
 layer_state_t layer_state_set_kb(layer_state_t state) {
     switch (get_highest_layer(layer_state | default_layer_state)) {
-        case _CANARY:
+        case 0:
             strcpy ( layer_state_str, " CAN ");
             break;
-        case _QWERTY:
+        case 1:
             strcpy ( layer_state_str, " QWE ");
             break;
-        case _COLE:
-            strcpy ( layer_state_str, " COL ");
-            break;
-        case _LOWER:
+        case 2:
             strcpy ( layer_state_str, "LOWER");
             break;
-        case _RAISE:
+        case 3:
             strcpy ( layer_state_str, "RAISE");
             break;
-        case _ADJUST:
+        case 4:
             strcpy ( layer_state_str, " ADJ ");
             break;
         default:
