@@ -105,13 +105,13 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
-      if(IS_LAYER_ON(_LOWER)){
+      if(IS_LAYER_ON(LOWER)){
           if (clockwise) {
               tap_code16(C(KC_TAB));
           } else {
               tap_code16(C(S(KC_TAB)));
           }
-      }else if(IS_LAYER_ON(_RAISE)){
+      }else if(IS_LAYER_ON(RAISE)){
         if(clockwise){
           tap_code(KC_WH_R);
         }
@@ -131,13 +131,13 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // └───────────────────────────────────────────────────────────┘
 
     } else if (index == 1) {
-      if(IS_LAYER_ON(_LOWER)){
+      if(IS_LAYER_ON(LOWER)){
           if (clockwise) {
               tap_code16(C(KC_Y));
           } else {
               tap_code16(C(KC_Z));
           }
-      }else if(IS_LAYER_ON(_RAISE)){
+      }else if(IS_LAYER_ON(RAISE)){
         if(clockwise){
           tap_code(KC_WH_D);
         }
