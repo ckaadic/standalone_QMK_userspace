@@ -9,14 +9,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [corne,reviung34,eternal_keypad]
+        keyboard: [corne,eternal_keypad]
         conv: [kb2040, '']
         include:
           - keyboard: basbousa 
           - keyboard: klor
             conv: kb2040
-          - keyboard: klor
-            conv: promicro_rp2040
+          - keyboard: reviung34
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v3

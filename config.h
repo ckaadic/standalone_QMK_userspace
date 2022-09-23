@@ -15,11 +15,13 @@
 //#define TAPPING_FORCE_HOLD_PER_KEY
 
 #ifdef QMK_MCU_FAMILY_RP
-#	define SPLIT_USB_TIMEOUT 2000
-#	define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
+    #define SPLIT_USB_TIMEOUT 2000
+    #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
 #endif
 
 #ifdef KEYBOARD_klor
+    #undef ENCODER_RESOLUTION
+    #define ENCODER_RESOLUTION 2
 #elif KEYBOARD_crkbd_rev1
     #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #elif OLED_ENABLE
