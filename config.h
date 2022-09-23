@@ -21,7 +21,7 @@
 
 #ifdef KEYBOARD_klor
     #undef ENCODER_RESOLUTION
-    #define ENCODER_RESOLUTION 2
+    #define ENCODER_RESOLUTION 4
 #elif KEYBOARD_crkbd_rev1
     #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
 #elif OLED_ENABLE
