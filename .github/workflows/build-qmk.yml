@@ -16,6 +16,8 @@ jobs:
           - keyboard: klor
             conv: kb2040
           - keyboard: reviung34
+          - keyboard: handwired/bento
+            conv: kb2040
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v3
