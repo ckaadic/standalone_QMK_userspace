@@ -46,7 +46,7 @@ jobs:
         qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
 
     - name: Compile
-      run: qmk userspace-compile -e SPLIT=${{ matrix.split }}
+      run: qmk userspace-compile -v -e SPLIT=${{ matrix.split }}
 
     - name: Calculate firmware size
       working-directory: qmk_firmware/.build/
