@@ -15,6 +15,17 @@
 #define IS_HOMEROW_SHIFT(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_SHIFT(k))
 #define IS_HOMEROW_CAG(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_CAG(k))
 
+#define IS_TYPING(k) ( \
+    ((uint8_t)(k) <= KC_Z || IS_SHORTCUT(k)) && \
+    (last_input_activity_elapsed() < INPUT_IDLE_MS))
+
+#define IS_UNILATERAL(r, n) ( \
+    (r->event.key.row == 1 && 0 <= n.event.key.row && n.event.key.row <= 2) || \
+    (r->event.key.row == 5 && 4 <= n.event.key.row && n.event.key.row <= 6) )
+
+#define IS_UNILATERAL_AND_NOT_SHIFT(r, c) ( \
+    IS_UNILATERAL(r, c.record) && !IS_MOD_TAP_SHIFT(c.keycode))
+
 // Contextual input storage
 static struct {
     uint_fast16_t keycode;
