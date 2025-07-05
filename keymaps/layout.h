@@ -65,10 +65,10 @@
                                `--------------------'  `--------------------'
  */
 #define _RAISE \
-	KC_NO, KC_ESC, K_F2,  K_F5,  K_F12, KC_DEL,   			KC_NO,   KC_PGUP, KC_UP,   KC_NO,   KC_NO,  KC_NO, \
-	KC_NO, KC_NO,  KC_NO, KC_NO, M_ENT, LCTL(KC_BSPC),   	KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_NO, \
-	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
-	                      KC_NO, RAISE, KC_NO,   			KC_TAB,  LOWER,   KC_NO
+	KC_NO, KC_ESC, KC_F2, KC_F5, KC_F12, KC_DEL,   			KC_NO,   KC_PGUP, KC_UP,   KC_NO,   KC_NO,  KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, KC_ENT, LCTL(KC_BSPC),   	KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO,  KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
+	                      KC_NO, RAISE,  KC_NO,   			KC_TAB,  LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  ESC |  F2  |  F5  |  F12 |  DEL |                |      | PGUP |  UP  |      |      |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
