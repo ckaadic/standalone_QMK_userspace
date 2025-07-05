@@ -4,16 +4,6 @@
         "features": {
             "oled": true,
             "rgblight": false
-        },
-        "split": {
-            "transport": {
-                "sync": {
-                    "indicators": true,
-                    "layer_state": true,
-                    "modifiers": true,
-                    "oled": true
-                }
-            }
         }
     },
 	"keymap": "ckaadic",
