@@ -1,6 +1,6 @@
 #include QMK_KEYBOARD_H
 #ifdef COMBO_ENABLE
-#   include "combos.h"
+#    include "g/keymap_combo.h"
 #endif
 
 // Convert 5-bit to 8-bit packed modifiers

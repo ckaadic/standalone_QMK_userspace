@@ -19,9 +19,14 @@
 #define INPUT_IDLE_MS  TAPPING_TERM - 80
 
 #ifdef COMBO_ENABLE
-#   define COMBO_TERM 25
-#   define EXTRA_SHORT_COMBOS
-#   define COMBO_SHOULD_TRIGGER
+#    define COMBO_SHOULD_TRIGGER
+#    define COMBO_MUST_TAP_PER_COMBO
+
+#    undef COMBO_TERM
+#    define COMBO_TERM 40
+#    define COMBO_TERM_PER_COMBO
+
+#    define COMBO_INSTANT_TAP_MS 100
 #endif
 
 #ifdef SPLIT_KEYBOARD
