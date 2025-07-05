@@ -1,7 +1,5 @@
 #pragma once
 
-#include "keymaps/layout.h"
-
 // Common QMK variables
 #define TAPPING_TERM 250
 //#define PERMISSIVE_HOLD
@@ -14,9 +12,13 @@
 //#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 //#define TAPPING_FORCE_HOLD_PER_KEY
 
+#ifdef SPLIT_KEYBOARD
+#   define EE_HANDS
+#endif
+
 #ifdef QMK_MCU_FAMILY_RP
     #define SPLIT_USB_TIMEOUT 2000
-    #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1000U
+    #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1500U
 #endif
 
 #ifdef KEYBOARD_klor
@@ -56,3 +58,5 @@
     #define RGBLIGHT_VAL_STEP 17
     #define RGBLIGHT_SLEEP
 #endif
+
+#include "layout.h"

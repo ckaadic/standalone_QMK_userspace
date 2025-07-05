@@ -1,4 +1,4 @@
-SRC += ckaadic.c
+INTROSPECTION_KEYMAP_C  = ckaadic.c
 VPATH += $(USER_PATH)/oled $(USER_PATH)/features $(USER_PATH)/rgb
 
 # Common feature for all keyboards

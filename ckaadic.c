@@ -1,5 +1,5 @@
-#include "ckaadic.h"
-#include "config.h"
+#include QMK_KEYBOARD_H
+//#include "config.h"
 
 // Layers
 #define LOWER 2
