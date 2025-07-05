@@ -2,7 +2,7 @@
 	"keyboard": "crkbd/rev1",
 	"config": {
         "features": {
-            "oled": true,
+            "oled": false,
             "rgblight": false
         }
     },
