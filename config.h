@@ -3,7 +3,7 @@
 // Common QMK settings
 #define USB_SUSPEND_WAKEUP_DELAY 2000
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1500U
-#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+//#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 // Space saving options
 #define LAYER_STATE_8BIT
 #define NO_ACTION_ONESHOT
@@ -18,7 +18,7 @@
 #define COMBO_IDLE_MS  TAPPING_TERM + 100
 #define INPUT_IDLE_MS  TAPPING_TERM - 80
 
-#ifdef COMBO_ENABLE
+/*#ifdef COMBO_ENABLE
 #    define COMBO_SHOULD_TRIGGER
 #    define COMBO_MUST_TAP_PER_COMBO
 
@@ -27,7 +27,7 @@
 #    define COMBO_TERM_PER_COMBO
 
 #    define COMBO_INSTANT_TAP_MS 100
-#endif
+#endif*/
 
 #ifdef SPLIT_KEYBOARD
 #   define EE_HANDS
