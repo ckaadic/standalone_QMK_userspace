@@ -1,5 +1,4 @@
 #include QMK_KEYBOARD_H
-#include "combos.h"
 
 // Convert 5-bit to 8-bit packed modifiers
 #define MOD_TAP_GET_MOD_BITS(k) (((k) & 0x0f00) >> (((k) & 0x1000) ? 4 : 8))

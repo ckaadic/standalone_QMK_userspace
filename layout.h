@@ -4,6 +4,18 @@
 #define HRML(k1,k2,k3,k4) LGUI_T(k1),RALT_T(k2),LCTL_T(k3),LSFT_T(k4)
 #define HRMR(k1,k2,k3,k4) RSFT_T(k1),RCTL_T(k2),LALT_T(k3),RGUI_T(k4)
 
+// Combo-Indizes definieren
+enum combo_events {
+    COMBO_ESC,
+};
+
+// Key-Kombinationen definieren
+const uint16_t PROGMEM combo_esc[] = {KC_Y, KC_P, COMBO_END};
+
+// Combo-Array
+combo_t key_combos[COMBO_COUNT] = {
+    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+};
 
 // Layers
 #define BSE 0

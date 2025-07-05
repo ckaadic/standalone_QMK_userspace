@@ -18,6 +18,10 @@
 #define COMBO_IDLE_MS  TAPPING_TERM + 100
 #define INPUT_IDLE_MS  TAPPING_TERM - 80
 
+#define COMBO_ENABLE
+#define COMBO_COUNT 10  // Anzahl deiner Combos
+#define COMBO_TERM 50   // Zeitfenster in ms
+
 #ifdef SPLIT_KEYBOARD
 #   define EE_HANDS
 #endif
