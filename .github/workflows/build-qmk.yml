@@ -43,29 +43,39 @@ jobs:
       run: |
         cp -r custom_keyboards/* keyboards/
 
-    - name: Setup variables
-      id: vars
-      env:
-        conv_suffix: $([ ${{ matrix.conv }} ] && printf "_${{ matrix.conv }}")
-      run: |
-        set -x
-        echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}"
-        echo "::set-output name=archive-name::${{ matrix.keyboard }}${{ env.conv_suffix }}"
+    #- name: Setup variables
+    #  id: vars
+    #  env:
+    #    conv_suffix: $([ ${{ matrix.conv }} ] && printf "_${{ matrix.conv }}")
+    #  run: |
+    #    set -x
+    #    echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}"
+    #    echo "::set-output name=archive-name::${{ matrix.keyboard }}${{ env.conv_suffix }}"
 
 
-    - name: Build firmware
-      continue-on-error: true
-      working-directory: users/${{ github.actor }}/keymaps
-      run: qmk compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
+    #- name: Build firmware
+    #  continue-on-error: true
+    #  working-directory: users/${{ github.actor }}/keymaps
+    #  run: qmk compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
+
+    - name: Setup safe directory
+      run: git config --global --add safe.directory '*'
+
+    - name: Compile
+      working-directory: users/${{ github.actor }}/keymaps/
+      run: qmk compile -j $(nproc) ${{ matrix.keyboard }}.json -e SPLIT=${{ matrix.split }}
+
+    - name: Calculate firmware size
+      run: avr-size $(ls .build/*.tmp) | sed 's/\.build\/\(.*\)\.tmp/\1/'
 
 
     - name: Archive firmware
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ steps.vars.outputs.archive-name }}
+        name: ${{ matrix.keyboard }}_${{ matrix.split }}
         retention-days: 5
         path: |
           *.bin
           *.hex
           *.uf2
-      continue-on-error: true
+      #continue-on-error: true
