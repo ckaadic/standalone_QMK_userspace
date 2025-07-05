@@ -10,7 +10,9 @@ CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
 VPATH += $(USER_PATH)/features
-INTROSPECTION_KEYMAP_C  = ckaadic.c
+# To use gboards combos
+INTROSPECTION_KEYMAP_C = combos.c
+SRC += ckaadic.c
 
 ifneq ($(strip $(CONVERT_TO)),)
     EEPROM_DRIVER = transient
