@@ -10,54 +10,31 @@
 //#define TAP_HOLD_CAPS_DELAY 25
 //#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 //#define TAPPING_FORCE_HOLD_PER_KEY
-// Input intervals
-#define SHIFT_TAP_TERM TAPPING_TERM - 60
 
-#ifdef SPLIT_KEYBOARD
-#   define EE_HANDS
-#endif
+// Input intervals
+#define QUICK_TAP_TERM TAPPING_TERM - 100
+#define SHIFT_TAP_TERM TAPPING_TERM - 60
+#define COMBO_IDLE_MS  TAPPING_TERM + 100
+#define INPUT_IDLE_MS  TAPPING_TERM - 80
+
 
 #ifdef QMK_MCU_FAMILY_RP
     #define SPLIT_USB_TIMEOUT 2000
     #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_TIMEOUT 1500U
 #endif
 
-#ifdef KEYBOARD_klor
-    #undef ENCODER_RESOLUTION
-    #define ENCODER_RESOLUTION 4
-#elif KEYBOARD_crkbd_rev1
-    #define OLED_FONT_H "keyboards/crkbd/lib/glcdfont.c"
-#elif OLED_ENABLE
-    #define SPLIT_LAYER_STATE_ENABLE
-    #define SPLIT_LED_STATE_ENABLE
-    #define SPLIT_MODS_ENABLE
-    #define SPLIT_OLED_ENABLE
-    #define OLED_TIMEOUT 60000
-    //#define OLED_FONT_H "oled/glcdfont.c"
+#ifdef SPLIT_KEYBOARD
+#   define EE_HANDS
 #endif
 
-#ifdef KEYBOARD_reviung_reviung34
-    #define RGB_DI_PIN D3
-//#define DRIVER_LED_TOTAL 9
-    #define RGBLED_NUM 9
+#ifdef COMBO_ENABLE
+#   define COMBO_TERM 25
+#   define EXTRA_SHORT_COMBOS
+#   define COMBO_SHOULD_TRIGGER
+#   define COMBO_ONLY_FROM_LAYER 0
 #endif
 
-#ifdef RGBLIGHT_ENABLE
-    #define RGBLIGHT_EFFECT_BREATHING
-    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
-    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-    #define RGBLIGHT_EFFECT_SNAKE
-    #define RGBLIGHT_EFFECT_KNIGHT
-    #define RGBLIGHT_EFFECT_CHRISTMAS
-    #define RGBLIGHT_EFFECT_STATIC_GRADIENT
-    #define RGBLIGHT_EFFECT_RGB_TEST
-    #define RGBLIGHT_EFFECT_ALTERNATING
-    #define RGBLIGHT_EFFECT_TWINKLE
-    #define RGBLIGHT_LIMIT_VAL 120
-    #define RGBLIGHT_HUE_STEP 10
-    #define RGBLIGHT_SAT_STEP 17
-    #define RGBLIGHT_VAL_STEP 17
-    #define RGBLIGHT_SLEEP
+// Layout macros
+#ifndef __ASSEMBLER__
+#   include "layout.h"
 #endif
-
-#include "layout.h"

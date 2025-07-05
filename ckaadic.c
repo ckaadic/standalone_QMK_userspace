@@ -1,17 +1,5 @@
 #include QMK_KEYBOARD_H
 
-// Layers
-//#define LOWER 2
-//#define RAISE 3
-//#define ADJUST 4
-
-/* void keyboard_post_init_user(void) {
-  // Call the post init code.
-  #if HAPTIC_ENABLE
-    haptic_disable(); // disables per key haptic feedback by default
-  #endif //HAPTIC ENABLE
-} */
-
 // Convert 5-bit to 8-bit packed modifiers
 #define MOD_TAP_GET_MOD_BITS(k) (((k) & 0x0f00) >> (((k) & 0x1000) ? 4 : 8))
 // Basic keycode filter for tap-hold keys
@@ -27,143 +15,61 @@
 #define IS_HOMEROW_SHIFT(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_SHIFT(k))
 #define IS_HOMEROW_CAG(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_CAG(k))
 
+// Contextual input storage
+static struct {
+    uint_fast16_t keycode;
+    keyrecord_t   record;
+} context;
+
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    // If the tap-hold key overlaps with another non-Shift key on the same
+    // hand or if the key is a shortcut overlapping with any other key,
+    // clear its interrupted state and process the tap-hold key as a tap
+    if (IS_UNILATERAL_AND_NOT_SHIFT(record, context) || IS_SHORTCUT(keycode)) {
+        record->tap.interrupted = false;
+        record->tap.count++;
+        process_record(record);
+        return false;
+    }
+    // Activate layer hold with another key press
+    else return IS_LAYER_TAP(keycode);
+}
+
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    // Register Shift with a nested key press
+    return IS_HOMEROW_SHIFT(keycode, record);
+}
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     // Shorten interval for Shift
     return IS_HOMEROW_SHIFT(keycode, record) ? SHIFT_TAP_TERM : TAPPING_TERM;
 }
 
-/* bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
-	switch (keycode) {
-        case M_AE:
-            if (record->event.pressed) {
-                SEND_STRING("\"a");
-            }
-            return false;
-        case M_OE:
-            if (record->event.pressed) {
-                SEND_STRING("\"o");
-            }
-            return false;
-        case M_UE:
-            if (record->event.pressed) {
-                SEND_STRING("\"u");
-            }
-            return false;
-        case LOWER:
-            if (record->event.pressed) {
-                layer_on(LOWER);
-                update_tri_layer(LOWER, RAISE, ADJUST);
-            } else {
-                layer_off(LOWER);
-                update_tri_layer(LOWER, RAISE, ADJUST);
-            }
-            return false;
-        case RAISE:
-            if (record->event.pressed) {
-                layer_on(RAISE);
-                update_tri_layer(LOWER, RAISE, ADJUST);
-            } else {
-                layer_off(RAISE);
-                update_tri_layer(LOWER, RAISE, ADJUST);
-            }
-            return false;
-        case ADJUST:
-            if (record->event.pressed) {
-                layer_on(ADJUST);
-            } else {
-                layer_off(ADJUST);
-            }
-            return false;
-  }
-	return true;
-} */
+// Send custom hold keycode
+static inline bool process_tap_hold(uint16_t keycode, keyrecord_t *record) {
+    if (record->tap.count) return true;
+    tap_code16(keycode);
+    return false;
+}
 
 
-/* const key_override_t lbracket_override = {.trigger_mods          = MOD_MASK_SHIFT,
-                                   .layers                 = ~0,
-                                   .suppressed_mods        = MOD_MASK_SHIFT,
-                                   .options                = ko_options_default,
-                                   .trigger                = KC_LBRACKET,
-                                   .replacement            = KC_RBRACKET,
-                                   .enabled                = NULL};
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        if (!process_autocorrect(keycode, record)) return false;
+        if (host_keyboard_led_state().caps_lock) process_caps_unlock(keycode, record);
 
-const key_override_t hbracket_override = {.trigger_mods          = MOD_MASK_SHIFT,
-                                   .layers                 = ~0,
-                                   .suppressed_mods        = MOD_MASK_SHIFT,
-                                   .options                = ko_options_default,
-                                   .trigger                = LSFT(KC_LBRACKET),
-                                   .replacement            = LSFT(KC_RBRACKET),
-                                   .enabled                = NULL};
-
-const key_override_t bracket_override = ko_make_basic(MOD_MASK_SHIFT, LSFT(KC_9), LSFT(KC_0));
-
-const key_override_t **key_overrides = (const key_override_t *[]){
-    //&backspace_override,
-    &lbracket_override,
-    &hbracket_override,
-    &bracket_override,
-    NULL
-}; */
-
-/*
-#ifdef ENCODER_ENABLE
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  L                                          │
-// └───────────────────────────────────────────────────────────┘
-
-bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-      if(IS_LAYER_ON(LOWER)){
-          if (clockwise) {
-              tap_code16(C(KC_TAB));
-          } else {
-              tap_code16(C(S(KC_TAB)));
-          }
-      }else if(IS_LAYER_ON(RAISE)){
-        if(clockwise){
-          tap_code(KC_WH_R);
-        }
-        else{
-          tap_code(KC_WH_L);
-        }
-      }else{
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-      }
-
-// ┌───────────────────────────────────────────────────────────┐
-// │ e n c o d e r  R                                          │
-// └───────────────────────────────────────────────────────────┘
-
-    } else if (index == 1) {
-      if(IS_LAYER_ON(LOWER)){
-          if (clockwise) {
-              tap_code16(C(KC_Y));
-          } else {
-              tap_code16(C(KC_Z));
-          }
-      }else if(IS_LAYER_ON(RAISE)){
-        if(clockwise){
-          tap_code(KC_WH_D);
-        }
-        else{
-          tap_code(KC_WH_U);
-        }
-      }else {
-            if (clockwise) {
-              tap_code(KC_VOLU);
-          } else {
-              tap_code(KC_VOLD);
-          }
-      }
+        // Clipboard shortcuts
+        if      (keycode == TH_M)    return process_tap_hold(Z_PST, record);
+        else if (keycode == TH_COMM) return process_tap_hold(Z_CPY, record);
+        else if (keycode == TH_DOT)  return process_tap_hold(Z_CUT, record);
+        else if (keycode == TH_SLSH) return process_tap_hold(Z_UND, record);
     }
+
     return true;
 }
 
-#endif // ENCODER_ENABLE
-*/
+// Reduce marix scanning delay
+#ifndef DIRECT_PINS
+void matrix_io_delay(void) { __asm__ volatile("nop\nnop\nnop\n"); }
+#endif

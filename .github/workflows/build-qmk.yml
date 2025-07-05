@@ -11,15 +11,7 @@ jobs:
       matrix:
         keyboard: [corne]
         split: [left, right]
-        #keyboard: [corne,eternal_keypad]
-        #conv: [kb2040, '']
-        #include:
-          #- keyboard: basbousa 
-          #- keyboard: klor
-          #  conv: kb2040
-          #- keyboard: reviung34
-          #- keyboard: handwired/bento
-          #  conv: kb2040
+
     steps:
     - name: Checkout QMK
       uses: actions/checkout@v4
@@ -34,32 +26,6 @@ jobs:
         path: users/${{ github.actor }}
         persist-credentials: false
 
-    - name: Checkout custom boards
-      uses: actions/checkout@v4
-      with:
-        repository: ${{ github.actor }}/keyboards
-        token: ${{ secrets.GH_PAT }}
-        path: custom_keyboards
-
-    - name: Copy custom boards
-      run: |
-        cp -r custom_keyboards/* keyboards/
-
-    #- name: Setup variables
-    #  id: vars
-    #  env:
-    #    conv_suffix: $([ ${{ matrix.conv }} ] && printf "_${{ matrix.conv }}")
-    #  run: |
-    #    set -x
-    #    echo "::set-output name=build-args:: -e CONVERT_TO=${{ matrix.conv }}"
-    #    echo "::set-output name=archive-name::${{ matrix.keyboard }}${{ env.conv_suffix }}"
-
-
-    #- name: Build firmware
-    #  continue-on-error: true
-    #  working-directory: users/${{ github.actor }}/keymaps
-    #  run: qmk compile -j 3 ${{ steps.vars.outputs.build-args }} ${{ matrix.keyboard }}.json
-
     - name: Setup safe directory
       run: git config --global --add safe.directory '*'
 
@@ -72,12 +38,11 @@ jobs:
 
 
     - name: Archive firmware
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@main
       with:
+        retention-days: 1
         name: ${{ matrix.keyboard }}_${{ matrix.split }}
-        retention-days: 5
         path: |
-          *.bin
           *.hex
+          *.bin
           *.uf2
-      #continue-on-error: true

@@ -3,10 +3,6 @@
 // Home row mod-tap macros
 #define HRML(k1,k2,k3,k4) LGUI_T(k1),LALT_T(k2),LCTL_T(k3),LSFT_T(k4)
 #define HRMR(k1,k2,k3,k4) LSFT_T(k1),LCTL_T(k2),RALT_T(k3),LGUI_T(k4)
-#define M_AE	RALT_T(KC_A)
-#define M_UE	RALT_T(KC_U)
-#define M_OE	RALT_T(KC_O)
-#define M_CW	CAPS_WORD
 
 
 // Layers
@@ -67,7 +63,7 @@
 #define _RAISE \
 	KC_NO, KC_ESC, KC_F2, KC_F5, KC_F12, KC_DEL,   			KC_NO,   KC_PGUP, KC_UP,   KC_NO,   KC_NO,  KC_NO, \
 	KC_NO, KC_NO,  KC_NO, KC_NO, KC_ENT, LCTL(KC_BSPC),   	KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_NO, \
-	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO,  KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
+	KC_NO, DF(BSE), DF(ALT), KC_NO, KC_NO,  KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
 	                      KC_NO, RAISE,  KC_NO,   			KC_TAB,  LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  ESC |  F2  |  F5  |  F12 |  DEL |                |      | PGUP |  UP  |      |      |      |
@@ -77,21 +73,6 @@
    |      |      |      |      |      |      |                |      | PGDN |      |      |      |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
                                |      |      |      |  |      |_ADJUST |      |
-                               `--------------------'  `--------------------'
- */
-#define _ADJUST \
-	KC_NO, DF(BSE), DF(ALT), KC_NO,   KC_NO,    KC_NO,      KC_F12,  KC_F7,   KC_F8,   KC_F9,   KC_NO, KC_NO, \
-	KC_NO, RGB_HUI, RGB_SAI, RGB_VAI, RGB_MOD,  RGB_TOG,    KC_F11,  KC_F4,   KC_F5,   KC_F6,   KC_NO, KC_NO, \
-	KC_NO, RGB_HUD, RGB_SAD, RGB_VAD, RGB_RMOD, KC_NO,    	KC_F10,  KC_F1,   KC_F2,   KC_F3,   KC_NO, KC_NO, \
-	                         KC_NO,   RAISE,    KC_NO,      KC_NO, 	 LOWER,   KC_NO
-/* ,-----------------------------------------.                ,-----------------------------------------.
-   |      |BOOT  |  F1  |  F2  |  F3  | F10  |                |      | WH_U | WH_D |      |_COLE |      |
-   |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      |      |  F4  |  F5  |  F6  | F11  |                | MS_L | MS_D | MS_U | MS_R |      |      |
-   |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      |SLEEP |  F7  |  F8  |  F9  | F12  |                |      | BTN2 | BTN1 |      |SSAVE |      |
-   `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
-                               |      |      |      |  |      |      |      |
                                `--------------------'  `--------------------'
  */
 #define _CANARY \
