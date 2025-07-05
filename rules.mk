@@ -6,8 +6,8 @@ SPACE_CADET_ENABLE = no
 
 # Enable common features
 LTO_ENABLE = yes
-#CAPS_WORD_ENABLE = yes
-#COMBO_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
 
 VPATH += $(USER_PATH)/features
 INTROSPECTION_KEYMAP_C  = ckaadic.c
@@ -19,8 +19,4 @@ ifneq ($(strip $(CONVERT_TO)),)
         MAKECMDGOALS = uf2-split-$(strip $(SPLIT))
         override TARGET := $(TARGET)_$(strip $(SPLIT))
     endif
-endif
-
-ifeq ($(strip $(OLED_ENABLE)), yes)
-    SRC += oled-32.c
 endif
