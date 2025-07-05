@@ -1,11 +1,5 @@
 {
 	"keyboard": "crkbd/rev1",
-	"config": {
-        "features": {
-            "oled": false,
-            "rgblight": false
-        }
-    },
 	"keymap": "ckaadic",
 	"layout": "LAYOUT_36key_w",
 	"layers": [

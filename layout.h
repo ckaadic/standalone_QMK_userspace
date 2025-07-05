@@ -6,7 +6,7 @@
 
 // Combo-Indizes definieren
 enum combo_events {
-    COMBO_ESC,
+    COMBO_ESC
 };
 
 // Key-Kombinationen definieren
@@ -14,7 +14,7 @@ const uint16_t PROGMEM combo_esc[] = {KC_Y, KC_P, COMBO_END};
 
 // Combo-Array
 combo_t key_combos[COMBO_COUNT] = {
-    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
+    [COMBO_ESC] = COMBO(combo_esc, KC_ESC)
 };
 
 // Layers
