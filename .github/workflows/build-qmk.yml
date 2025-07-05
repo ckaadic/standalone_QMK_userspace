@@ -3,9 +3,11 @@ on: [push, workflow_dispatch]
 
 jobs:
   build:
-    name: Userspace build
+    name: QMK Userspace build
     runs-on: ubuntu-latest
-    container: qmkfm/qmk_cli
+    container: qmkfm/base_container
+    permissions:
+      contents: write
     strategy:
       fail-fast: false
       matrix:
