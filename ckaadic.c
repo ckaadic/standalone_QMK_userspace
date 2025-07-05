@@ -106,6 +106,7 @@ const key_override_t **key_overrides = (const key_override_t *[]){
     NULL
 }; */
 
+/*
 #ifdef ENCODER_ENABLE
 
 // ┌───────────────────────────────────────────────────────────┐
@@ -165,3 +166,4 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #endif // ENCODER_ENABLE
+*/
