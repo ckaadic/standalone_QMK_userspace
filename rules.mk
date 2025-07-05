@@ -7,6 +7,7 @@ SPACE_CADET_ENABLE = no
 # Enable common features
 LTO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
+COMBO_ENABLE = yes
 
 VPATH += $(USER_PATH)/features
 INTROSPECTION_KEYMAP_C  = ckaadic.c
