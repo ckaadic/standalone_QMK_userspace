@@ -1,30 +1,23 @@
 #include QMK_KEYBOARD_H
-//#include "config.h"
 
 // Layers
 #define LOWER 2
 #define RAISE 3
 #define ADJUST 4
 
-void keyboard_post_init_user(void) {
+/* void keyboard_post_init_user(void) {
   // Call the post init code.
   #if HAPTIC_ENABLE
     haptic_disable(); // disables per key haptic feedback by default
   #endif //HAPTIC ENABLE
-}
+} */
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LSFT_T(KC_T):
-            return TAPPING_TERM - 150;
-        case LSFT_T(KC_N):
-            return TAPPING_TERM - 150;
-        default:
-            return TAPPING_TERM;
-    }
+    // Shorten interval for Shift
+    return IS_HOMEROW_SHIFT(keycode, record) ? SHIFT_TAP_TERM : TAPPING_TERM;
 }
 
-bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
+/* bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
 	switch (keycode) {
         case M_AE:
             if (record->event.pressed) {
@@ -68,7 +61,7 @@ bool process_record_user(uint16_t const keycode, keyrecord_t *record) {
             return false;
   }
 	return true;
-}
+} */
 
 
 /* const key_override_t lbracket_override = {.trigger_mods          = MOD_MASK_SHIFT,

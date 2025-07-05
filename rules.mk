@@ -1,6 +1,3 @@
-INTROSPECTION_KEYMAP_C  = ckaadic.c
-VPATH += $(USER_PATH)/oled $(USER_PATH)/features $(USER_PATH)/rgb
-
 # Common feature for all keyboards
 BOOTMAGIC_ENABLE = yes
 EXTRAKEY_ENABLE = yes
@@ -31,6 +28,8 @@ RGBLIGHT_ENABLE = no
 SWAP_HANDS_ENABLE = no
 SPACE_CADET_ENABLE = no
 
+INTROSPECTION_KEYMAP_C  = ckaadic.c
+VPATH += $(USER_PATH)/oled $(USER_PATH)/rgb #$(USER_PATH)/features
 
 ifeq ($(strip $(MCU)), atmega32u4)
 	LTO_ENABLE = yes
@@ -39,23 +38,23 @@ endif
 
 ifneq ($(strip $(CONVERT_TO)),)
 	EEPROM_DRIVER = transient
-	OPT_DEFS += -DINIT_EE_HANDS_$(shell echo ${SPLIT}|tr a-z A-Z)
+#	OPT_DEFS += -DINIT_EE_HANDS_$(shell echo ${SPLIT}|tr a-z A-Z)
 endif
 
-ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
-    RGB_MATRIX_ENABLE = yes
-	OLED_ENABLE = yes
-	SRC += oled-32.c rgb-matrix.c
-else ifeq ($(strip $(KEYBOARD)), reviung/reviung34)
-    RGBLIGHT_ENABLE = yes
-    RGB_MATRIX_DRIVER = WS2812
-else ifeq ($(strip $(KEYBOARD)), eternal_keypad)
-	RGBLIGHT_ENABLE = yes
-else ifeq ($(strip $(KEYBOARD)), klor)
-	OLED_ENABLE = yes
-	OLED_DRIVER = SSD1306
-	ENCODER_ENABLE = yes
-	HAPTIC_ENABLE = yes
-	RGB_MATRIX_ENABLE = yes
-	SRC += oled-64.c rgb-matrix.c
-endif
+#ifeq ($(strip $(KEYBOARD)), crkbd/rev1)
+#    RGB_MATRIX_ENABLE = yes
+#	OLED_ENABLE = yes
+#	SRC += oled-32.c rgb-matrix.c
+#else ifeq ($(strip $(KEYBOARD)), reviung/reviung34)
+#    RGBLIGHT_ENABLE = yes
+#    RGB_MATRIX_DRIVER = WS2812
+#else ifeq ($(strip $(KEYBOARD)), eternal_keypad)
+#	RGBLIGHT_ENABLE = yes
+#else ifeq ($(strip $(KEYBOARD)), klor)
+#	OLED_ENABLE = yes
+#	OLED_DRIVER = SSD1306
+#	ENCODER_ENABLE = yes
+#	HAPTIC_ENABLE = yes
+#	RGB_MATRIX_ENABLE = yes
+#	SRC += oled-64.c rgb-matrix.c
+#endif

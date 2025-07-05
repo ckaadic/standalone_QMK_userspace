@@ -8,9 +8,10 @@
 //#define TAPPING_TERM_PER_KEY
 //#define TAP_CODE_DELAY 5
 //#define TAP_HOLD_CAPS_DELAY 25
-
 //#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 //#define TAPPING_FORCE_HOLD_PER_KEY
+// Input intervals
+#define SHIFT_TAP_TERM TAPPING_TERM - 60
 
 #ifdef SPLIT_KEYBOARD
 #   define EE_HANDS
