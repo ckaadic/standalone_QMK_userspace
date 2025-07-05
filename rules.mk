@@ -9,7 +9,7 @@ LTO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 COMBO_ENABLE = yes
 
-VPATH += $(USER_PATH)/features
+VPATH += $(USER_PATH)/features keyboards/gboards/
 # To use gboards combos
 INTROSPECTION_KEYMAP_C = combos.c
 SRC += ckaadic.c
