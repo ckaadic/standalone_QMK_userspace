@@ -22,13 +22,6 @@
 #   define EE_HANDS
 #endif
 
-#ifdef COMBO_ENABLE
-#   define COMBO_TERM 25
-#   define EXTRA_SHORT_COMBOS
-#   define COMBO_SHOULD_TRIGGER
-#   define COMBO_ONLY_FROM_LAYER 0
-#endif
-
 // Layout macros
 #ifndef __ASSEMBLER__
 #   include "layout.h"
