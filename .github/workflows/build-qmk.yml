@@ -26,21 +26,34 @@ jobs:
         path: users/${{ github.actor }}
         persist-credentials: false
 
-    - name: Setup safe directory
-      run: git config --global --add safe.directory '*'
+    - name: Install QMK CLI
+      run: |
+        python3 -m pip install --upgrade qmk
+        python3 -m pip install -r qmk_firmware/requirements.txt
+
+    - name: Configure QMK CLI
+      run: |
+        qmk config userspace_compile.parallel=$(nproc)
+        qmk config user.qmk_home=$GITHUB_WORKSPACE/qmk_firmware
+        qmk config user.overlay_dir=$GITHUB_WORKSPACE
+
+    - name: Setup build target
+      run: |
+        wget https://github.com/qmk/qmk_userspace/raw/main/qmk.json
+        qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
 
     - name: Compile
-      working-directory: users/${{ github.actor }}/keymaps/
-      run: qmk compile -j $(nproc) ${{ matrix.keyboard }}.json -e SPLIT=${{ matrix.split }}
+      run: qmk userspace-compile -e SPLIT=${{ matrix.split }}
 
     - name: Calculate firmware size
-      run: avr-size $(ls .build/*.tmp) | sed 's/\.build\/\(.*\)\.tmp/\1/'
-
+      working-directory: qmk_firmware/.build/
+      run: avr-size $(ls *.tmp) | sed 's/\(.*\)\.tmp/\1/'
 
     - name: Archive firmware
+      if: github.event_name == 'workflow_dispatch'
       uses: actions/upload-artifact@main
       with:
-        retention-days: 1
+        retention-days: 3
         name: ${{ matrix.keyboard }}_${{ matrix.split }}
         path: |
           *.hex
