@@ -20,20 +20,20 @@ jobs:
             conv: kb2040
     steps:
     - name: Checkout QMK
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
       with:
         repository: qmk/qmk_firmware
         #ref: develop
         submodules: true
 
     - name: Checkout userspace
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
       with:
         path: users/${{ github.actor }}
         persist-credentials: false
 
     - name: Checkout custom boards
-      uses: actions/checkout@v3
+      uses: actions/checkout@main
       with:
         repository: ${{ github.actor }}/keyboards
         token: ${{ secrets.GH_PAT }}
@@ -60,7 +60,7 @@ jobs:
 
 
     - name: Archive firmware
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@main
       with:
         name: ${{ steps.vars.outputs.archive-name }}
         retention-days: 5
