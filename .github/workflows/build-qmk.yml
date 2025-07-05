@@ -18,6 +18,7 @@ jobs:
     - name: Checkout QMK
       uses: actions/checkout@v4
       with:
+        path: qmk_firmware
         repository: qmk/qmk_firmware
         ref: develop
         submodules: true
