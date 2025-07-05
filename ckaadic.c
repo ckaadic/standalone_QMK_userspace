@@ -57,29 +57,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     return IS_HOMEROW_SHIFT(keycode, record) ? SHIFT_TAP_TERM : TAPPING_TERM;
 }
 
-// Send custom hold keycode
-static inline bool process_tap_hold(uint16_t keycode, keyrecord_t *record) {
-    if (record->tap.count) return true;
-    tap_code16(keycode);
-    return false;
-}
-
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (record->event.pressed) {
-        if (!process_autocorrect(keycode, record)) return false;
-        if (host_keyboard_led_state().caps_lock) process_caps_unlock(keycode, record);
-
-        // Clipboard shortcuts
-        if      (keycode == TH_M)    return process_tap_hold(Z_PST, record);
-        else if (keycode == TH_COMM) return process_tap_hold(Z_CPY, record);
-        else if (keycode == TH_DOT)  return process_tap_hold(Z_CUT, record);
-        else if (keycode == TH_SLSH) return process_tap_hold(Z_UND, record);
-    }
-
-    return true;
-}
-
 // Reduce marix scanning delay
 #ifndef DIRECT_PINS
 void matrix_io_delay(void) { __asm__ volatile("nop\nnop\nnop\n"); }
