@@ -2,7 +2,7 @@
 
 // Home row mod-tap macros
 #define HRML(k1,k2,k3,k4) LGUI_T(k1),LALT_T(k2),LCTL_T(k3),LSFT_T(k4)
-#define HRMR(k1,k2,k3,k4) LSFT_T(k1),LCTL_T(k2),LALT_T(k3),LGUI_T(k4)
+#define HRMR(k1,k2,k3,k4) LSFT_T(k1),LCTL_T(k2),RALT_T(k3),LGUI_T(k4)
 #define M_AE	RALT_T(KC_A)
 #define M_UE	RALT_T(KC_U)
 #define M_OE	RALT_T(KC_O)
@@ -50,31 +50,31 @@
                                `--------------------'  `--------------------'
  */
 #define _LOWER \
-	KC_NO, KC_SCLN, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,     KC_ASTR, KC_MINS, KC_EQL,  KC_PLUS, KC_GRV,  KC_NO, \
-	KC_NO, KC_COLN, KC_BSLS, KC_LCBR, KC_LPRN, KC_LBRC,     KC_3,    KC_2,    KC_1,    KC_0,    KC_4,    KC_NO, \
-	KC_NO, KC_CIRC, KC_AMPR, KC_PERC, KC_DLR,  KC_DOT,      KC_7,    KC_6,    KC_5,    KC_9,    KC_8,    KC_NO, \
-	                         KC_NO,   RAISE,   KC_TRNS,     KC_NO,   LOWER,   KC_NO
+	KC_NO, KC_SCLN, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,     KC_ASTR, KC_9,   KC_8,  KC_7,  KC_GRV,  KC_NO, \
+	KC_NO, KC_COLN, KC_BSLS, KC_MINS, KC_EQL,  KC_PLUS,     KC_3,    KC_2,   KC_1,  KC_0,  KC_CIRC, KC_NO, \
+	KC_NO, KC_NO,   KC_AMPR, KC_PERC, KC_DLR,  KC_NO,       KC_NO,   KC_6,   KC_5,  KC_4,  KC_NO,   KC_NO, \
+	                         KC_NO,   RAISE,   KC_TRNS,     KC_NO,   LOWER,  KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
-   |      | INS  |  1   |  2   |  3   | VOLU |                | HOME | PGDN | PGUP | END  |  :   |      |
+   |      |  ;   |  #   |  @   |  _   |  !   |                |  *   |  9   |  8   |  7   |  `   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      | DEL  |  4   |  5   |  6   | VOLD |                | LEFT | DOWN |  UP  | RGHT |  ;   |      |
+   |      |  :   |  \   |  -   |  =   |  +   |                |  3   |  2   |  1   |  0   |  ^   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      | CAPS |  7   |  8   |  9   |  0   |                |      |RSA_DN|RSA_UP|      |      |      |
+   |      |      |  &   |  %   |  $   |      |                |      |  6   |  5   |  4   |      |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
                                |      |_ADJUST | GESC |  |      |      |      |
                                `--------------------'  `--------------------'
  */
 #define _RAISE \
-	KC_NO, KC_ESC, M_UE,  M_AE,  M_OE,  KC_NO,   			KC_NO,   KC_PGUP, KC_UP,   RALT(KC_S), KC_NO,  KC_NO, \
-	KC_NO, KC_NO,  KC_NO, KC_NO, M_CW,  KC_ENT,   			KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT,    KC_END, KC_NO, \
-	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,      KC_NO,  KC_NO, \
+	KC_NO, KC_ESC, K_F2,  K_F5,  K_F12, KC_DEL,   			KC_NO,   KC_PGUP, KC_UP,   KC_NO,   KC_NO,  KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, M_ENT, LCTL(KC_BSPC),   	KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_NO, \
+	KC_NO, KC_NO,  KC_NO, KC_NO, KC_NO, KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
 	                      KC_NO, RAISE, KC_NO,   			KC_TAB,  LOWER,   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
-   |      |      |  [   |  {   |  }   |      |                |  ^   |  (   |  )   |  ]   |  ~   |      |
+   |      |  ESC |  F2  |  F5  |  F12 |  DEL |                |      | PGUP |  UP  |      |      |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      |  !   |  @   |  #   |  $   |  %   |                |  *   |  -   |  =   |  \   |  `   |      |
+   |      |      |      |      |  ENT |  BW  |                | HOME | LEFT | DOWN | RGHT |  END |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      |      |      |      |      |      |                |  &   |  _   |  +   |  |   |      |      |
+   |      |      |      |      |      |      |                |      | PGDN |      |      |      |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
                                |      |      |      |  |      |_ADJUST |      |
                                `--------------------'  `--------------------'
@@ -100,11 +100,11 @@
 	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
 	                    	 KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
-   |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
+   |      |  W   |  L   |  Y   |  P   |  B   |                |  Z   |  F   |  O   |  U   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
    |      |  A   |  R   |  S   |  T   |  G   |                |  M   |  N   |  E   |  I   |  O   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
-   |      |  Z   |  X   |  C   |  D   |  V   |                |  K   |  H   | , <  | . >  | / ?  |      |
+   |      |  Q   |  J   |  V   |  D   |  K   |                |  X   |  H   | , <  | . >  | / ?  |      |
    `------+------+------+------+------+------+------.  ,------+------+------+------+------+------+------'
                                | DEL |_RAISE | OSM_ |  |RSFT_T|_LOWER | ENT  |
                                |      | BSPC | SFT  |  | SPC  | TAB  |      |
