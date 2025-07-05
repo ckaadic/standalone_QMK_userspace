@@ -45,8 +45,11 @@ jobs:
         wget https://github.com/qmk/qmk_userspace/raw/main/qmk.json
         qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
 
+    - name: Validate userspace
+      run: qmk userspace-doctor
+
     - name: Compile
-      run: qmk userspace-compile -e SPLIT=${{ matrix.split }} --verbose
+      run: qmk userspace-compile -e SPLIT=${{ matrix.split }}
 
     - name: Calculate firmware size
       working-directory: qmk_firmware/.build/
