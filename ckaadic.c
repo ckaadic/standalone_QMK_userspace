@@ -1,9 +1,9 @@
 #include QMK_KEYBOARD_H
 
 // Layers
-#define LOWER 2
-#define RAISE 3
-#define ADJUST 4
+//#define LOWER 2
+//#define RAISE 3
+//#define ADJUST 4
 
 /* void keyboard_post_init_user(void) {
   // Call the post init code.
@@ -11,6 +11,22 @@
     haptic_disable(); // disables per key haptic feedback by default
   #endif //HAPTIC ENABLE
 } */
+
+// Convert 5-bit to 8-bit packed modifiers
+#define MOD_TAP_GET_MOD_BITS(k) (((k) & 0x0f00) >> (((k) & 0x1000) ? 4 : 8))
+// Basic keycode filter for tap-hold keys
+#define GET_TAP_KEYCODE(k) ((k) & 0xff)
+
+// Tap-hold decision helper macros
+#define IS_LAYER_TAP(k) (IS_QK_LAYER_TAP(k) && QK_LAYER_TAP_GET_LAYER(k))
+#define IS_SHORTCUT(k) (IS_QK_LAYER_TAP(k) && !QK_LAYER_TAP_GET_LAYER(k))
+#define IS_MOD_TAP_SHIFT(k) (IS_QK_MOD_TAP(k) && (k) & QK_LSFT)
+#define IS_MOD_TAP_CAG(k) (IS_QK_MOD_TAP(k) && (k) & (QK_LCTL|QK_LALT|QK_LGUI))
+
+#define IS_HOMEROW(r) (r->event.key.row == 1 || r->event.key.row == 5)
+#define IS_HOMEROW_SHIFT(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_SHIFT(k))
+#define IS_HOMEROW_CAG(k, r) (IS_HOMEROW(r) && IS_MOD_TAP_CAG(k))
+
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     // Shorten interval for Shift
