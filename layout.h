@@ -6,14 +6,14 @@
 
 
 // Layers
-enum layers { BSE, ALT, LOWER, RAISE, CAN};
+enum layers { BSE, ALT, LOWER, RAISE};
 
 // Default 3x6_3 split layout
 #define _QWERTY \
 	KC_NO, KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,        KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_NO, \
 	KC_NO, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,        KC_H,    KC_J,    KC_K,    KC_L,    KC_QUOT, KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                         KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
+	                         KC_DEL,  MO(RAISE),   KC_BSPC,     KC_SPC,  MO(LOWER),   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  E   |  R   |  T   |                |  Y   |  U   |  I   |  O   |  P   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -29,7 +29,7 @@ enum layers { BSE, ALT, LOWER, RAISE, CAN};
 	KC_NO, KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,        KC_J,    KC_L,    KC_U,    KC_Y,    KC_QUOT, KC_NO, \
 	KC_NO, KC_A,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_O,    KC_NO, \
 	KC_NO, KC_Z,    KC_X,    KC_C,    KC_D,    KC_V,        KC_K,    KC_H,    KC_COMM, KC_DOT,  KC_SLSH, KC_NO, \
-	                    	 KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
+	                    	 KC_DEL,  MO(RAISE),   KC_BSPC,     KC_SPC,  MO(LOWER),   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  Q   |  W   |  F   |  P   |  B   |                |  J   |  L   |  U   |  Y   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -45,7 +45,7 @@ enum layers { BSE, ALT, LOWER, RAISE, CAN};
 	KC_NO, KC_SCLN, KC_HASH, KC_AT,   KC_UNDS, KC_EXLM,     KC_ASTR, KC_9,   KC_8,  KC_7,  KC_GRV,  KC_NO, \
 	KC_NO, KC_COLN, KC_BSLS, KC_MINS, KC_EQL,  KC_PLUS,     KC_3,    KC_2,   KC_1,  KC_0,  KC_CIRC, KC_NO, \
 	KC_NO, KC_NO,   KC_AMPR, KC_PERC, KC_DLR,  KC_NO,       KC_NO,   KC_6,   KC_5,  KC_4,  KC_NO,   KC_NO, \
-	                         KC_NO,   RAISE,   KC_TRNS,     KC_NO,   LOWER,  KC_NO
+	                         KC_NO,   MO(RAISE),   KC_TRNS,     KC_NO,   MO(LOWER),  KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  ;   |  #   |  @   |  _   |  !   |                |  *   |  9   |  8   |  7   |  `   |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -60,7 +60,7 @@ enum layers { BSE, ALT, LOWER, RAISE, CAN};
 	KC_NO, KC_ESC, KC_F2, KC_F5, KC_F12, KC_DEL,   			KC_NO,   KC_PGUP, KC_UP,   KC_NO,   KC_NO,  KC_NO, \
 	KC_NO, KC_NO,  KC_NO, KC_NO, KC_ENT, LCTL(KC_BSPC),   	KC_HOME, KC_LEFT, KC_DOWN, KC_RGHT, KC_END, KC_NO, \
 	KC_NO, DF(BSE), DF(ALT), KC_NO, KC_NO,  KC_NO,   			KC_NO,   KC_PGDN, KC_NO,   KC_NO,   KC_NO,  KC_NO, \
-	                      KC_NO, RAISE,  KC_NO,   			KC_TAB,  LOWER,   KC_NO
+	                      KC_NO, MO(RAISE),  KC_NO,   			KC_TAB,  MO(LOWER),   KC_NO
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  ESC |  F2  |  F5  |  F12 |  DEL |                |      | PGUP |  UP  |      |      |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
@@ -75,7 +75,7 @@ enum layers { BSE, ALT, LOWER, RAISE, CAN};
 	KC_NO, KC_W,    KC_L,    KC_Y,    KC_P,    KC_B,        KC_Z,    KC_F,    KC_O,    KC_U,    KC_QUOT, KC_NO, \
 	KC_NO, KC_C,    KC_R,    KC_S,    KC_T,    KC_G,        KC_M,    KC_N,    KC_E,    KC_I,    KC_A,    KC_NO, \
 	KC_NO, KC_Q,    KC_J,    KC_V,    KC_D,    KC_K,        KC_X,    KC_H,    KC_SLSH, KC_COMM, KC_DOT,  KC_NO, \
-	                    	 KC_DEL,  RAISE,   KC_BSPC,     KC_SPC,  LOWER,   KC_TAB
+	                    	 KC_DEL,  MO(RAISE),   KC_BSPC,     KC_SPC,  MO(LOWER),   KC_TAB
 /* ,-----------------------------------------.                ,-----------------------------------------.
    |      |  W   |  L   |  Y   |  P   |  B   |                |  Z   |  F   |  O   |  U   | ' "  |      |
    |------+------+------+------+------+------|                |------+------+------+------+------+------|
