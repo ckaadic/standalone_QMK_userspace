@@ -6,11 +6,7 @@
 
 
 // Layers
-#define BSE 0
-#define ALT 1
-#define LOWER 2
-#define RAISE 3
-#define ADJUST 4
+enum layers { BSE, ALT, LOWER, RAISE, CAN};
 
 // Default 3x6_3 split layout
 #define _QWERTY \
