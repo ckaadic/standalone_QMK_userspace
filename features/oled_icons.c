@@ -26,11 +26,11 @@ static void render_logo(void) {
         0x80, 0x81, 0x82, 0x83, 0x84,
         0xa0, 0xa1, 0xa2, 0xa3, 0xa4,
         0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0};
-    static char const katakana[] PROGMEM = {
+    /*static char const katakana[] PROGMEM = {
         0x20, 0xd1, 0xd2, 0xd3, 0x20, 0};
-
+    */
     oled_write_P(corne_logo, false);
-    oled_write_P(layer_state_is(0) ? PSTR("BASE") : katakana, false);
+    oled_write_P(layer_state_is(0) ? PSTR("BASE") : PSTR("RAISE"), false);
 }
 
 
@@ -52,9 +52,9 @@ static void render_layer_state(uint8_t const state) {
         0x20, 0xbd, 0xbe, 0xbf, 0x20,
         0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
 
-    if      (state == 2) oled_write_P(numb_layer, false);
-    else if (state == 4) oled_write_P(symb_layer, false);
-    else if (state == 3) oled_write_P(func_layer, false);
+    if      (state == 1) oled_write_P(numb_layer, false);
+    else if (state == 0) oled_write_P(symb_layer, false);
+    else if (state == 2) oled_write_P(func_layer, false);
     else                 oled_write_P(base_layer, false);
 }
 
