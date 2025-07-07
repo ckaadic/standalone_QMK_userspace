@@ -2,7 +2,8 @@
 	"keyboard": "crkbd/rev1",
 	"config": {
         "features": {
-            "oled": true
+            "oled": true,
+			"rgb_matrix": false
         },
         "split": {
             "transport": {

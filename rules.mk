@@ -23,11 +23,16 @@ ifneq ($(strip $(CONVERT_TO)),)
     endif
 endif
 
+ifeq ($(strip $(RGB_MATRIX_ENABLE)), yes)
+    RGB_MATRIX_CUSTOM_USER = yes
+    SRC += rgb_matrix.c
+endif
+
 ifeq ($(strip $(OLED_ENABLE)), yes)
     ifneq ($(strip $(OLED)),)
         OPT_DEFS += -D$(strip $(OLED))
         SRC += oled_icons.c oled_luna.c
     else
-        SRC += oled_icons.c oled_luna.c
+        SRC += oled_icons.c oled_bongocat.c
     endif
 endif

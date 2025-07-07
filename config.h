@@ -31,6 +31,17 @@
 #   define OLED_FONT_H "oled_font.c"
 #endif
 
+#ifdef RGB_MATRIX_ENABLE
+#   define RGB_MATRIX_KEYPRESSES
+#   define RGB_MATRIX_DEFAULT_SPD 208
+#   define RGB_MATRIX_DEFAULT_HUE 180
+#   define ENABLE_RGB_MATRIX_CUSTOM_CANDY_TAP
+#   define ENABLE_RGB_MATRIX_CUSTOM_PIXEL_MOSAIC
+#   define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_CUSTOM_CANDY_TAP
+#   define DEF_MODE RGB_MATRIX_CUSTOM_CANDY_TAP
+#   define CMK_MODE RGB_MATRIX_CUSTOM_PIXEL_MOSAIC
+#endif
+
 // Layout macros
 #ifndef __ASSEMBLER__
 #   include "layout.h"
