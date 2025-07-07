@@ -25,6 +25,12 @@
 #   define EE_HANDS
 #endif
 
+#ifdef OLED_ENABLE
+#   define OLED_TIMEOUT 10000
+#   define OLED_BRIGHTNESS 180
+#   define OLED_FONT_H "oled_font.c"
+#endif
+
 // Layout macros
 #ifndef __ASSEMBLER__
 #   include "layout.h"

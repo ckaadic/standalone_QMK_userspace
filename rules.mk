@@ -22,3 +22,12 @@ ifneq ($(strip $(CONVERT_TO)),)
         override TARGET := $(TARGET)_$(strip $(SPLIT))
     endif
 endif
+
+ifeq ($(strip $(OLED_ENABLE)), yes)
+    ifneq ($(strip $(OLED)),)
+        OPT_DEFS += -D$(strip $(OLED))
+        SRC += oled_icons.c oled_luna.c
+    else
+        SRC += oled_icons.c oled_bongocat.c
+    endif
+endif
