@@ -20,6 +20,15 @@
 
 #include QMK_KEYBOARD_H
 
+#pragma once
+
+enum layers {
+    _CANARY = 0,
+    _QWERTY,
+    _LOWER,
+    _RAISE
+};
+
 
 static void render_logo(void) {
     static char const corne_logo[] PROGMEM = {
@@ -31,8 +40,6 @@ static void render_logo(void) {
     */
     oled_write_P(corne_logo, false);
     switch (get_highest_layer(layer_state)) {
-        case _COLE:
-            oled_write_P(PSTR("COLEM"), false);
         case _QWERTY:
             oled_write_P(PSTR("CANAR"), false);
         case _QWERTY:
@@ -41,6 +48,8 @@ static void render_logo(void) {
             oled_write_P(PSTR("LOWER"), false);
         case _RAISE:
             oled_write_P(PSTR("RAISE"), false);
+        default:
+            oled_write_P(PSTR("-?-"), false);
     }
     //oled_write_P( ? PSTR("BASE ") : PSTR("RAISE"), false);
 }
