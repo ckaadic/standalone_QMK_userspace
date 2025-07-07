@@ -20,8 +20,6 @@
 
 #include QMK_KEYBOARD_H
 
-#pragma once
-
 enum layers {
     _CANARY = 0,
     _QWERTY,
