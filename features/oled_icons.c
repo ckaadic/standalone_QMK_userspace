@@ -30,7 +30,16 @@ static void render_logo(void) {
         0x20, 0xd1, 0xd2, 0xd3, 0x20, 0};
     */
     oled_write_P(corne_logo, false);
-    oled_write_P(layer_state_is(0) ? PSTR("BASE ") : PSTR("RAISE"), false);
+    if (layer_state_is(0)) {
+        oled_write_P(PSTR("CANARY"), false);
+    } else if (delimiter == OSM(MOD_LSFT)) {
+        oled_write_P(PSTR("QWERTY"), false);
+    } else if (delimiter == OSM(MOD_LSFT)) {
+        oled_write_P(PSTR("LOWER "), false);
+    else {
+        oled_write_P(PSTR("RAISE "), false);
+    }
+    //oled_write_P( ? PSTR("BASE ") : PSTR("RAISE"), false);
 }
 
 
@@ -52,7 +61,7 @@ static void render_layer_state(uint8_t const state) {
         0x20, 0xbd, 0xbe, 0xbf, 0x20,
         0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
 
-    if      (state == 1) oled_write_P(numb_layer, false);
+    if      (state == 0) oled_write_P(numb_layer, false);
     else if (state == 3) oled_write_P(symb_layer, false);
     else if (state == 4) oled_write_P(func_layer, false);
     else                 oled_write_P(base_layer, false);
