@@ -30,7 +30,7 @@ static void render_logo(void) {
         0x20, 0xd1, 0xd2, 0xd3, 0x20, 0};
     */
     oled_write_P(corne_logo, false);
-    switch (get_highest_layer(layer_state)) {
+    switch (get_highest_layer(layer_state|default_layer_state)) {
         case BSE:
             oled_write_P(PSTR("CANAR"), false);
             break;
@@ -70,6 +70,7 @@ static void render_layer_state(uint8_t const state) {
         0x20, 0xdd, 0xde, 0xdf, 0x20, 0};
 
     if      (state == 0) oled_write_P(numb_layer, false);
+    else if (state == 1) oled_write_P(numb_layer, false);
     else if (state == 3) oled_write_P(symb_layer, false);
     else if (state == 4) oled_write_P(func_layer, false);
     else                 oled_write_P(base_layer, false);
