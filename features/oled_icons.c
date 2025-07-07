@@ -32,9 +32,9 @@ static void render_logo(void) {
     oled_write_P(corne_logo, false);
     if (layer_state_is(0)) {
         oled_write_P(PSTR("CANARY"), false);
-    } else if (delimiter == OSM(MOD_LSFT)) {
+    } else if (layer_state_is(1)) {
         oled_write_P(PSTR("QWERTY"), false);
-    } else if (delimiter == OSM(MOD_LSFT)) {
+    } else if (layer_state_is(2)) {
         oled_write_P(PSTR("LOWER "), false);
     else {
         oled_write_P(PSTR("RAISE "), false);
