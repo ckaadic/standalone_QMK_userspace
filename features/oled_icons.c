@@ -33,14 +33,19 @@ static void render_logo(void) {
     switch (get_highest_layer(layer_state)) {
         case BSE:
             oled_write_P(PSTR("CANAR"), false);
+            break;
         case ALT:
             oled_write_P(PSTR("QWERT"), false);
+            break;
         case LOWER:
             oled_write_P(PSTR("LOWER"), false);
+            break;
         case RAISE:
             oled_write_P(PSTR("RAISE"), false);
+            break;
         default:
             oled_write_P(PSTR("-?-"), false);
+            break;
     }
     //oled_write_P( ? PSTR("BASE ") : PSTR("RAISE"), false);
 }
