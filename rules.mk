@@ -28,6 +28,6 @@ ifeq ($(strip $(OLED_ENABLE)), yes)
         OPT_DEFS += -D$(strip $(OLED))
         SRC += oled_icons.c oled_luna.c
     else
-        SRC += oled_icons.c oled_mxbad.c
+        SRC += oled_mxbad.c
     endif
 endif
