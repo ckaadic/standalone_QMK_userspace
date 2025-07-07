@@ -25,13 +25,13 @@
 
 #define IS_UNILATERAL_AND_NOT_SHIFT(r, c) ( \
     IS_UNILATERAL(r, c.record) && !IS_MOD_TAP_SHIFT(c.keycode))
-
+/*
 // Contextual input storage
 static struct {
     uint_fast16_t keycode;
     keyrecord_t   record;
 } context;
-/*
+
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     // If the tap-hold key overlaps with another non-Shift key on the same
     // hand or if the key is a shortcut overlapping with any other key,
