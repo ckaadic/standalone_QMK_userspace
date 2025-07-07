@@ -30,14 +30,17 @@ static void render_logo(void) {
         0x20, 0xd1, 0xd2, 0xd3, 0x20, 0};
     */
     oled_write_P(corne_logo, false);
-    if (layer_state_is(0)) {
-        oled_write_P(PSTR("CANARY"), false);
-    } else if (layer_state_is(1)) {
-        oled_write_P(PSTR("QWERTY"), false);
-    } else if (layer_state_is(2)) {
-        oled_write_P(PSTR("LOWER "), false);
-    } else {
-        oled_write_P(PSTR("RAISE "), false);
+    switch (get_highest_layer(layer_state)) {
+        case _COLE:
+            oled_write_P(PSTR("COLEM"), false);
+        case _QWERTY:
+            oled_write_P(PSTR("CANAR"), false);
+        case _QWERTY:
+            oled_write_P(PSTR("QWERT"), false);
+        case _LOWER:
+            oled_write_P(PSTR("LOWER"), false);
+        case _RAISE:
+            oled_write_P(PSTR("RAISE"), false);
     }
     //oled_write_P( ? PSTR("BASE ") : PSTR("RAISE"), false);
 }
