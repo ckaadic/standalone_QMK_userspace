@@ -36,7 +36,7 @@ static void render_logo(void) {
         oled_write_P(PSTR("QWERTY"), false);
     } else if (layer_state_is(2)) {
         oled_write_P(PSTR("LOWER "), false);
-    else {
+    } else {
         oled_write_P(PSTR("RAISE "), false);
     }
     //oled_write_P( ? PSTR("BASE ") : PSTR("RAISE"), false);
