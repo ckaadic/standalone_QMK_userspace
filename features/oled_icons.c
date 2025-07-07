@@ -54,7 +54,7 @@ static void render_layer_state(uint8_t const state) {
 
     if      (state == 1) oled_write_P(numb_layer, false);
     else if (state == 2) oled_write_P(symb_layer, false);
-    else if (state == 0) oled_write_P(func_layer, false);
+    else if (state == 3) oled_write_P(func_layer, false);
     else                 oled_write_P(base_layer, false);
 }
 
