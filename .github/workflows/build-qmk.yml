@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [corne, klor]
+        keyboard: [corne]
         split: [left, right]
 
     steps:
@@ -29,61 +29,35 @@ jobs:
         path: users/${{ github.actor }}
         persist-credentials: false
 
-    - name: Checkout custom boards
-      uses: actions/checkout@v3
-      with:
-        repository: ${{ github.actor }}/keyboards
-        path: custom_keyboards
 
-    - name: Copy custom boards
+    - name: Install QMK CLI
       run: |
-        cp -r custom_keyboards/* qmk_firmware/keyboards/
+        echo '$PATH'
+        echo $PATH | tr ':' '\n' | sed -e 's/^/ - /g'
+        pip install -r qmk_firmware/requirements.txt
 
-    - name: Debug KLOR
-      if: matrix.keyboard == 'klor'
+    - name: Configure QMK CLI
       run: |
-        echo "=== KLOR structure ==="
-        ls -la qmk_firmware/keyboards/klor/
-        echo "=== Keymap ==="
-        ls -la qmk_firmware/keyboards/klor/keymaps/custom/
-        echo "=== info.json layouts ==="
-        grep -A2 '"layouts"' qmk_firmware/keyboards/klor/info.json
-        echo "=== klor.h LAYOUT ==="
-        grep "define LAYOUT" qmk_firmware/keyboards/klor/klor.h
+        qmk config userspace_compile.parallel=$(nproc)
+        qmk config user.qmk_home=$GITHUB_WORKSPACE/qmk_firmware
+        qmk config user.overlay_dir=$GITHUB_WORKSPACE
 
-    - name: Compile firmware
-      working-directory: qmk_firmware
-      run: qmk compile -kb ${{ matrix.keyboard }} -km custom -e SPLIT=${{ matrix.split }}
+    - name: Setup build target
+      run: |
+        wget https://github.com/qmk/qmk_userspace/raw/main/qmk.json
+        qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
 
+    - name: Validate userspace
+      run: |
+        qmk userspace-doctor
 
-    #- name: Install QMK CLI
-    #  run: |
-    #    echo '$PATH'
-    #    echo $PATH | tr ':' '\n' | sed -e 's/^/ - /g'
-    #    pip install -r qmk_firmware/requirements.txt
+    - name: Compile
+      working-directory: users/${{ github.actor }}/keymaps/
+      run: qmk compile -j $(nproc) ${{ matrix.keyboard }}.json -e SPLIT=${{ matrix.split }}
 
-    #- name: Configure QMK CLI
-    #  run: |
-    #    qmk config userspace_compile.parallel=$(nproc)
-    #    qmk config user.qmk_home=$GITHUB_WORKSPACE/qmk_firmware
-    #    qmk config user.overlay_dir=$GITHUB_WORKSPACE
-
-    #- name: Setup build target
-    #  run: |
-    #    wget https://github.com/qmk/qmk_userspace/raw/main/qmk.json
-    #    qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
-
-    #- name: Validate userspace
-    #  run: |
-    #    qmk userspace-doctor
-
-    #- name: Compile
-    #  working-directory: users/${{ github.actor }}/keymaps/
-    #  run: qmk compile -j $(nproc) ${{ matrix.keyboard }}.json -e SPLIT=${{ matrix.split }}
-
-    #- name: Calculate firmware size
-    #  working-directory: qmk_firmware/.build/
-    #  run: avr-size $(ls *.tmp) | sed 's/\(.*\)\.tmp/\1/'
+    - name: Calculate firmware size
+      working-directory: qmk_firmware/.build/
+      run: avr-size $(ls *.tmp) | sed 's/\(.*\)\.tmp/\1/'
 
     - name: Archive firmware
       uses: actions/upload-artifact@main
