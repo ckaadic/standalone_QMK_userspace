@@ -39,11 +39,6 @@ jobs:
       run: |
         cp -r custom_keyboards/* qmk_firmware/keyboards/
 
-    - name: Copy keymaps to QMK
-      run: |
-        mkdir -p qmk_firmware/keyboards/${{ matrix.keyboard }}/keymaps/custom
-        cp -r userspace/keymaps/${{ matrix.keyboard }}/* qmk_firmware/keyboards/${{ matrix.keyboard }}/keymaps/custom/
-
     - name: Debug KLOR
       if: matrix.keyboard == 'klor'
       run: |
