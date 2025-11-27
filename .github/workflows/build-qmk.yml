@@ -5,13 +5,13 @@ jobs:
   build:
     name: QMK Userspace build
     runs-on: ubuntu-latest
-    container: qmkfm/base_container
+    container: ghcr.io/qmk/qmk_cli:latest
     permissions:
       contents: write
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [corne]
+        keyboard: [corne, klor]
         split: [left, right]
 
     steps:
@@ -31,8 +31,9 @@ jobs:
 
     - name: Install QMK CLI
       run: |
-        python3 -m pip install --upgrade qmk
-        python3 -m pip install -r qmk_firmware/requirements.txt
+        echo '$PATH'
+        echo $PATH | tr ':' '\n' | sed -e 's/^/ - /g'
+        pip install -r qmk_firmware/requirements.txt
 
     - name: Configure QMK CLI
       run: |
@@ -44,6 +45,10 @@ jobs:
       run: |
         wget https://github.com/qmk/qmk_userspace/raw/main/qmk.json
         qmk userspace-add $GITHUB_WORKSPACE/users/${{ github.actor }}/keymaps/${{ matrix.keyboard }}.json
+
+    - name: Validate userspace
+      run: |
+        qmk userspace-doctor
 
     #- name: Compile
     #  run: qmk -v userspace-compile -e SPLIT=${{ matrix.split }}
