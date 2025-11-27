@@ -69,4 +69,5 @@ jobs:
         path: |
           *.hex
           *.bin
+
           *.uf2
