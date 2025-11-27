@@ -39,6 +39,8 @@ jobs:
       run: |
         cp -r custom_keyboards/* qmk_firmware/keyboards/
         ls -lah qmk_firmware/keyboards | grep klor
+        qmk clean -a
+        qmk list-keyboards | grep klor
 
     - name: Install QMK CLI
       run: |
