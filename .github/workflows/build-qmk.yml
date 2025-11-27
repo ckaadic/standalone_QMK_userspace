@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        keyboard: [corne]
+        keyboard: [corne, klor]
         split: [left, right]
 
     steps:
@@ -64,4 +64,5 @@ jobs:
         path: |
           *.hex
           *.bin
+
           *.uf2
