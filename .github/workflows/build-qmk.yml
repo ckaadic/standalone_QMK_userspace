@@ -38,6 +38,7 @@ jobs:
     - name: Copy custom boards
       run: |
         cp -r custom_keyboards/* qmk_firmware/
+        ls -lah qmk_firmware/keyboards
 
     - name: Install QMK CLI
       run: |
