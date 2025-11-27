@@ -29,6 +29,16 @@ jobs:
         path: users/${{ github.actor }}
         persist-credentials: false
 
+    - name: Checkout custom boards
+      uses: actions/checkout@v3
+      with:
+        repository: ${{ github.actor }}/keyboards
+        path: custom_keyboards
+
+    - name: Copy custom boards
+      run: |
+        cp custem_keyboards/* keyboards/
+
     - name: Install QMK CLI
       run: |
         echo '$PATH'
